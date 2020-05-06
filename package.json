@@ -1,8 +1,23 @@
 {
-  "name": "front-end",
+  "name": "@rename/front-end",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "repository": "git@github.com:nooks-cranny/front-end",
+  "author": "Henrique de Castilhos <henrique@castilhos.dev>",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "validate": "yarn validate:lint && yarn validate:prettier && yarn validate:ts",
+    "validate:lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "validate:prettier": "prettier \"src/**/*.+(ts|tsx|js|jsx|json|yml|yaml|md|mdx)\" --check",
+    "validate:ts": "tsc"
+  },
   "dependencies": {
+    "@significa/eslint-config": "^0.0.17",
+    "@significa/prettier-config": "^0.0.17",
+    "@significa/tsconfig-config": "^0.0.17",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,16 +25,17 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,40 @@
+{
+  "extends": "@significa/eslint-config",
+  "settings": {
+    "import/internal-regex": "^common|^config|^modules|^schemas"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          ["internal", "parent", "sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-inferrable-types": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/member-ordering": "error",
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      { "overrides": { "constructors": "no-public" } }
+    ]
+  }
+}
