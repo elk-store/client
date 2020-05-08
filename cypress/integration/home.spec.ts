@@ -6,6 +6,10 @@ describe('Home page', () => {
   })
 
   it('should shows title', () => {
-    cy.get('p').should('have.text', 'Edit src/App.tsx and save to reload.')
+    cy.get('p').should(
+      'have.text',
+      'Edit src/pages/Home/Home.tsx and save to reload.'
+    )
+    cy.get('a').should('have.text', 'Learn React')
   })
 })
