@@ -1,5 +1,5 @@
 <h1 align="center">
-  🛒 Front-end
+  elk. client 🛒
 </h1>
 
 ## Prerequisites
@@ -18,7 +18,7 @@ yarn install
 ## Running the app
 
 ```bash
-yarn start
+yarn dev
 ```
 
 ## Test
