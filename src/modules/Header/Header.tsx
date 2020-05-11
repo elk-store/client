@@ -48,7 +48,7 @@ const Header: React.FC = () => {
       <Background>
         <Container>
           <Link href="/">
-            <Title size="heading">Elk.</Title>
+            <Title size="heading">elk.</Title>
           </Link>
 
           <Search />
