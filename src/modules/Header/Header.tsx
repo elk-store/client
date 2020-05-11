@@ -1,19 +1,60 @@
-import AppBar from '@material-ui/core/AppBar'
-import Button from '@material-ui/core/Button'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import Link from 'next/link'
 import React from 'react'
+import styled from 'styled-components'
+
+import { Search } from './Search'
+import { HEADER_HEIGHT } from 'common/sizes'
+import { Container as BaseContainer, Text } from 'common/UI'
+
+const Background = styled.header`
+  background: var(--color-primary);
+  width: 100%;
+  height: ${HEADER_HEIGHT};
+  box-sizing: border-box;
+  z-index: 1100;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: auto;
+`
+
+const Container = styled(BaseContainer)`
+  display: flex;
+  align-items: center;
+
+  width: 90%;
+  padding-top: 0;
+`
+
+const Title = styled(Text)`
+  cursor: pointer;
+
+  @media (min-width: 1025px) {
+    margin-left: 0.75rem;
+    text-align: left;
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    margin-right: 0;
+    flex: 0 1 auto;
+  }
+`
 
 const Header: React.FC = () => {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          elk.
-        </Typography>
-        <Button color="inherit">Login</Button>
-      </Toolbar>
-    </AppBar>
+    <>
+      <Background>
+        <Container>
+          <Link href="/">
+            <Title size="heading">Elk.</Title>
+          </Link>
+
+          <Search />
+        </Container>
+      </Background>
+    </>
   )
 }
 
