@@ -1,0 +1,51 @@
+import React from 'react'
+import { createGlobalStyle, css } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  ${({ theme }) => css`
+    body,
+    html {
+      background-color: ${theme.colors.light};
+      font-family: ${theme.settings.fontFamilyBase};
+
+      /* TODO: ver o que está rolando com a margin do body */
+      margin: 0;
+    }
+
+    :root {
+      ${({ theme: { colors, fontSizes } }) => css`
+        /* Colors */
+        --color-primary: ${colors.primary};
+        --color-secondary: ${colors.secondary};
+        --color-light: ${colors.light};
+
+        --color-black: ${colors.black};
+        --color-black-light: ${colors.black}80;
+        --color-grey: ${colors.grey};
+        --color-white: ${colors.white};
+        --color-white-light: ${colors['white-light']};
+        --color-white-lighter: ${colors['white-lighter']};
+
+        --color-error: ${colors.error};
+
+        /* Font sizes */
+        --size-small: ${fontSizes.small};
+        --size-normal: ${fontSizes.normal};
+        --size-medium: ${fontSizes.medium};
+        --size-heading: ${fontSizes.heading};
+        --size-huge: ${fontSizes.huge};
+      `}
+    }
+  `}
+`
+
+const Layout: React.FC = ({ children }) => {
+  return (
+    <>
+      <GlobalStyle />
+      {children}
+    </>
+  )
+}
+
+export { Layout }
