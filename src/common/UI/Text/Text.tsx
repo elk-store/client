@@ -4,7 +4,7 @@ import { FontSizeVariant, ColorVariant } from '../'
 
 type Weight = 'normal' | 'bold'
 
-const Text = styled.span<{
+const Text = styled.div<{
   size?: FontSizeVariant
   color?: ColorVariant
   weight?: Weight
