@@ -6,9 +6,7 @@ const Container = styled.div`
   max-width: 80rem;
   width: 100%;
 
-  padding-top: 6rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
 `
 
 export { Container }
