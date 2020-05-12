@@ -7,15 +7,15 @@ import Core from 'modules/Core'
 const Index: React.FC = () => {
   return (
     <Core>
-      <header>
-        <Typography component="p" variant="h6">
-          Edit <code>src/pages/index.tsx</code> and save to reload.
-        </Typography>
+      <Typography component="p" variant="h6">
+        Edit <code>src/pages/index.tsx</code> and save to reload.
+      </Typography>
 
-        <Button href="https://reactjs.org" target="_blank">
-          Learn React
-        </Button>
-      </header>
+      <Button href="https://reactjs.org" target="_blank">
+        Learn React
+      </Button>
+
+      <div style={{ height: '200vh' }} />
     </Core>
   )
 }
