@@ -1,6 +1,6 @@
 {
   "name": "@elk/client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": "git@github.com:elk-store/client.git",
   "author": "Henrique de Castilhos <henrique@castilhos.dev>",
   "license": "MIT",
