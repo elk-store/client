@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
         --size-normal: ${fontSizes.normal};
         --size-medium: ${fontSizes.medium};
         --size-heading: ${fontSizes.heading};
+        --size-title: ${fontSizes.title};
         --size-huge: ${fontSizes.huge};
       `}
     }
