@@ -33,12 +33,12 @@ const MenuWrapper = styled.div`
   /* Mobile */
   @media (max-width: 60rem) {
     position: fixed;
-    top: 4.8rem;
+    top: 3.9rem;
     left: 0;
     width: 100%;
     height: 120%;
     z-index: 2;
-    padding-bottom: calc(30% + 4.8rem);
+    padding-bottom: calc(30% + 3.9rem);
 
     flex-direction: column;
     justify-content: center;
@@ -62,12 +62,12 @@ const MenuWrapper = styled.div`
 
 const Background = styled.header`
   background: var(--color-primary);
-  padding-top: 1.3rem;
+  padding-top: 1rem;
   height: ${HEADER_HEIGHT};
 
   /* Desktop */
   @media (min-width: 60rem) {
-    padding-top: 1rem;
+    padding-top: 0.5rem;
   }
 
   position: fixed;
@@ -81,7 +81,6 @@ const Container = styled(BaseContainer)`
   position: relative;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0 !important;
 `
 
 const Title = styled(Text)`

@@ -5,6 +5,8 @@ import {
 import App from 'next/app'
 import React from 'react'
 
+import 'wipe.css'
+
 import { ThemeProvider, Layout, theme } from 'common/UI'
 
 class MyApp extends App {
