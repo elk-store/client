@@ -7,9 +7,6 @@ const GlobalStyle = createGlobalStyle`
     html {
       background-color: ${theme.colors.light};
       font-family: ${theme.settings.fontFamilyBase};
-
-      /* TODO: ver o que está rolando com a margin do body */
-      margin: 0;
     }
 
     :root {
