@@ -1,9 +1,9 @@
 {
   "name": "@elk/client",
   "version": "0.1.0",
-  "license": "MIT",
   "repository": "git@github.com:elk-store/client.git",
   "author": "Henrique de Castilhos <henrique@castilhos.dev>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -26,6 +26,14 @@
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@now/node": "^1.6.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.5",
+    "@semantic-release/npm": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@significa/eslint-config": "0.0.17",
     "@significa/prettier-config": "0.0.17",
     "@significa/tsconfig-config": "0.0.17",
@@ -34,6 +42,8 @@
     "@types/styled-components": "5.1.0",
     "babel-plugin-styled-components": "1.10.7",
     "cypress": "4.5.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
     "start-server-and-test": "1.11.0",
     "tsconfig-paths-webpack-plugin": "3.2.0",
     "typescript": "3.8.3"
