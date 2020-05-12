@@ -3,7 +3,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  width: 100%;
   position: relative;
   overflow: visible;
 
@@ -12,10 +11,7 @@ const Wrapper = styled.div`
   }
 
   color: var(--color-white);
-  width: 100%;
-  position: relative;
-  margin-left: 16px;
-  margin-right: 16px;
+  margin: 0 16px;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.15);
   text-align: left;
