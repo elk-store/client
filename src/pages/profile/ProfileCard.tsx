@@ -1,41 +1,13 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  Tabs,
-  Tab,
-  Typography,
-} from '@material-ui/core'
+import { Card, CardActionArea, CardActions, Tabs, Tab } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 
-interface TabPanelProps {
-  children?: React.ReactNode
-  index: any
-  value: any
-}
-
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  )
-}
+import Addresses from './Addresses'
+import Header from './Header'
+import OrderHistory from './OrderHistory'
+import Payment from './Payment'
+import TabPanel from './Tab'
+import UserForm from 'modules/Forms/User'
 
 const useStyles = makeStyles({
   root: {},
@@ -60,30 +32,26 @@ const ProfileCard: React.FC = () => {
   return (
     <Card className={classes.root}>
       <CardActionArea className={classes.content}>
-        <Avatar> R </Avatar>
-        <CardContent>
-          <Typography variant="h5" component="h2">
-            Rafael Stein Matsumoto
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            rafael@catolicasc.org.br
-          </Typography>
-        </CardContent>
+        <Header />
       </CardActionArea>
       <CardActions className={classes.actions}>
         <Tabs value={value} onChange={handleChange} orientation="vertical">
-          <Tab label="Configurações" />
-          <Tab label="Histórico de compra" />
-          <Tab label="Método de pagamento" />
+          <Tab label="Settings" />
+          <Tab label="Orders" />
+          <Tab label="Addresses" />
+          <Tab label="Payment" />
         </Tabs>
         <TabPanel value={value} index={0}>
-          Configurações do usuário
+          <UserForm />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Histórico de compra históricos
+          <OrderHistory />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Método de pagamento
+          <Addresses />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <Payment />
         </TabPanel>
       </CardActions>
     </Card>
