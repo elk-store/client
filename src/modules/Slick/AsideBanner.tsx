@@ -75,12 +75,14 @@ const AsideBanner: React.FC<{
 
       <Content>
         <Holder>
-          <Text size="medium" color="black">
-            {title}
-          </Text>
-          <Text size="heading" color="black" weight="bold">
-            {description}
-          </Text>
+          <div data-cy="slick">
+            <Text size="medium" color="black">
+              {title}
+            </Text>
+            <Text size="heading" color="black" weight="bold">
+              {description}
+            </Text>
+          </div>
         </Holder>
       </Content>
     </Card>

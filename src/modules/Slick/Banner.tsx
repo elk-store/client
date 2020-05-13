@@ -31,7 +31,7 @@ const Holder = styled.div`
   pointer-events: visible;
 `
 
-const Title = styled.div`
+const Title = styled.p`
   font-weight: 400;
   font-size: 2.813rem;
   line-height: 3rem;
@@ -48,7 +48,7 @@ const Title = styled.div`
   }
 `
 
-const Description = styled.div`
+const Description = styled.p`
   font-weight: 900;
   font-size: 3.25rem;
   letter-spacing: -0.0625rem;
@@ -80,8 +80,10 @@ const Banner: React.FC<{
 
       <Content>
         <Holder>
-          <Title>{title}</Title>
-          <Description>{description}</Description>
+          <div data-cy="slick">
+            <Title>{title}</Title>
+            <Description>{description}</Description>
+          </div>
         </Holder>
       </Content>
     </Card>
