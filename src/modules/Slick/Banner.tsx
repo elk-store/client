@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Text } from 'common/UI'
-
 const Card = styled.div`
   position: relative;
   width: 100%;
@@ -33,19 +31,57 @@ const Holder = styled.div`
   pointer-events: visible;
 `
 
-const Banner: React.FC<{ image: string }> = ({ image }) => {
+const Title = styled.div`
+  font-weight: 400;
+  font-size: 2.813rem;
+  line-height: 3rem;
+  color: var(--color-black);
+
+  @media (max-width: 767px) {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 599px) {
+    font-size: 1.5rem;
+    margin-bottom: 0.3125rem;
+  }
+`
+
+const Description = styled.div`
+  font-weight: 900;
+  font-size: 3.25rem;
+  letter-spacing: -0.0625rem;
+  line-height: 3.5rem;
+  color: var(--color-black);
+
+  @media (max-width: 959px) {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 599px) {
+    font-size: 1.8rem;
+  }
+`
+
+const Banner: React.FC<{
+  image: string
+  title: string
+  description: string
+}> = ({ image, title, description }) => {
   return (
     <Card>
       <img src={image} alt="Hello" />
 
       <Content>
         <Holder>
-          <Text size="title" color="black">
-            Big Sale
-          </Text>
-          <Text size="huge" color="black" weight="bold">
-            Women&apos;s Summer Collection
-          </Text>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
         </Holder>
       </Content>
     </Card>
