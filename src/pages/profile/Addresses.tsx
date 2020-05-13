@@ -8,7 +8,7 @@ const Addresses: React.FC = () => {
     <Grid container spacing={2}>
       {[0, 1, 2].map((value) => (
         <Grid item xs={4} key={value}>
-          <Address default={value === 0} />
+          <Address isDefault={value === 0} />
         </Grid>
       ))}
     </Grid>

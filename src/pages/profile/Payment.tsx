@@ -8,7 +8,7 @@ const Payment: React.FC = () => {
     <Grid container spacing={2}>
       {[0, 1, 2].map((value) => (
         <Grid item xs={4} key={value}>
-          <PaymentCard default={value === 0} />
+          <PaymentCard isDefault={value === 0} />
         </Grid>
       ))}
     </Grid>
