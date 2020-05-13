@@ -1,4 +1,5 @@
-import DayjsUtils from '@date-io/dayjs'
+import 'date-fns'
+import DateFnsUtils from '@date-io/date-fns'
 import { TextField } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
@@ -20,7 +21,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Form: React.FC = () => {
   const classes = useStyles()
+  const [birthdate, setBirthdate] = React.useState<Date | null>(new Date())
 
+  const handleBirthdate = (date: Date | null) => {
+    setBirthdate(date)
+  }
   return (
     <form className={classes.root}>
       <div>
@@ -33,14 +38,16 @@ const Form: React.FC = () => {
         <TextField id="cpf" label="CPF" />
       </div>
       <div>
-        <MuiPickersUtilsProvider utils={DayjsUtils}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <KeyboardDatePicker
             disableToolbar
             variant="inline"
-            format="DD/MM/YYYY"
+            format="dd/MM/yyyy"
             margin="normal"
             id="birthdate"
             label="Birth Date"
+            value={birthdate}
+            onChange={handleBirthdate}
             KeyboardButtonProps={{
               'aria-label': 'change date',
             }}
