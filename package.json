@@ -1,6 +1,6 @@
 {
   "name": "@elk/client",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": "git@github.com:elk-store/client.git",
   "author": "Henrique de Castilhos <henrique@castilhos.dev>",
   "license": "MIT",
@@ -44,6 +44,7 @@
     "@types/styled-components": "5.1.0",
     "babel-plugin-styled-components": "1.10.7",
     "cypress": "4.5.0",
+    "eslint-plugin-cypress": "^2.10.3",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
     "start-server-and-test": "1.11.0",
