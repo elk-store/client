@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Address: React.FC<CardProps> = (props) => {
+const Address: React.FC<CardProps> = ({ isDefault }) => {
   const classes = useStyles()
 
   return (
@@ -38,7 +38,7 @@ const Address: React.FC<CardProps> = (props) => {
         <Typography className={classes.title} gutterBottom>
           R. Visc. de Taunay, 427 - Centro, Joinville - SC, 89203-005
         </Typography>
-        {props.default ? <Typography>Default</Typography> : ''}
+        {isDefault ? <Typography>Default</Typography> : ''}
       </CardContent>
       <CardActions className={classes.actions}>
         <Button variant="contained" size="small" color="primary">

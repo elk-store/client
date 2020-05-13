@@ -1,3 +1,3 @@
-export interface CardProps {
-  default: boolean
+export type CardProps = {
+  isDefault: boolean
 }

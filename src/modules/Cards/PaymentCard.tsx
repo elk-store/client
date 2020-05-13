@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 })
 
-const PaymentCard: React.FC<CardProps> = (props) => {
+const PaymentCard: React.FC<CardProps> = ({ isDefault }) => {
   const classes = useStyles()
 
   return (
@@ -38,7 +38,7 @@ const PaymentCard: React.FC<CardProps> = (props) => {
         <Typography className={classes.title} gutterBottom>
           Order ###.###.###
         </Typography>
-        {props.default ? <Typography>Default</Typography> : ''}
+        {isDefault ? <Typography>Default</Typography> : ''}
       </CardContent>
       <CardActions className={classes.actions}>
         <Button variant="contained" size="small" color="primary">
