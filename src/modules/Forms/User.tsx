@@ -55,12 +55,8 @@ const Form: React.FC = () => {
             <Grid item xs className={classes.textField}>
               <TextField margin="normal" id="cpf" label="CPF" />
             </Grid>
-
             <Grid item xs className={classes.textField}>
-              <MuiPickersUtilsProvider
-                utils={DateFnsUtils}
-                className={classes.textField}
-              >
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
                   disableToolbar
                   variant="inline"
