@@ -13,7 +13,6 @@ import { CardProps } from './card.model'
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
     height: '100%',
   },
   title: {
@@ -25,7 +24,7 @@ const useStyles = makeStyles({
   },
   actions: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   },
 })
 
@@ -36,7 +35,7 @@ const PaymentCard: React.FC<CardProps> = ({ isDefault }) => {
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} gutterBottom>
-          Order ###.###.###
+          Card ###.###.###
         </Typography>
         {isDefault ? <Typography>Default</Typography> : ''}
       </CardContent>

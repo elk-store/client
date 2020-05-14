@@ -13,7 +13,6 @@ import React from 'react'
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
     height: '100%',
   },
   title: {
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
   },
   actions: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   },
 })
 

@@ -1,23 +1,31 @@
 import 'date-fns'
 import DateFnsUtils from '@date-io/date-fns'
-import { TextField } from '@material-ui/core'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { TextField, Container, Grid, Button } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers'
 import React from 'react'
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: 200,
-      },
-    },
-  })
-)
+const useStyles = makeStyles({
+  root: {
+    height: '100%',
+    width: '100%',
+  },
+  paper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    width: '25ch',
+  },
+  button: {
+    width: '25ch',
+  },
+})
 
 const Form: React.FC = () => {
   const classes = useStyles()
@@ -26,38 +34,66 @@ const Form: React.FC = () => {
   const handleBirthdate = (date: Date | null) => {
     setBirthdate(date)
   }
+
   return (
-    <form className={classes.root}>
-      <div>
-        <TextField id="fullname" label="Full name" />
-      </div>
-      <div>
-        <TextField id="email" label="Email" />
-      </div>
-      <div>
-        <TextField id="cpf" label="CPF" />
-      </div>
-      <div>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
-            disableToolbar
-            variant="inline"
-            format="dd/MM/yyyy"
-            margin="normal"
-            id="birthdate"
-            label="Birth Date"
-            value={birthdate}
-            onChange={handleBirthdate}
-            KeyboardButtonProps={{
-              'aria-label': 'change date',
-            }}
-          />
-        </MuiPickersUtilsProvider>
-      </div>
-      <div>
-        <TextField id="telephone" label="Telephone" />
-      </div>
-    </form>
+    <Container fixed>
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <form>
+          <div>
+            <Grid item xs className={classes.textField}>
+              <TextField margin="normal" id="fullname" label="Full name" />
+            </Grid>
+            <Grid item xs className={classes.textField}>
+              <TextField margin="normal" id="email" label="Email" />
+            </Grid>
+            <Grid item xs className={classes.textField}>
+              <TextField margin="normal" id="cpf" label="CPF" />
+            </Grid>
+
+            <Grid item xs className={classes.textField}>
+              <MuiPickersUtilsProvider
+                utils={DateFnsUtils}
+                className={classes.textField}
+              >
+                <KeyboardDatePicker
+                  disableToolbar
+                  variant="inline"
+                  format="dd/MM/yyyy"
+                  margin="normal"
+                  id="birthdate"
+                  label="Birth Date"
+                  value={birthdate}
+                  onChange={handleBirthdate}
+                  KeyboardButtonProps={{
+                    'aria-label': 'change date',
+                  }}
+                />
+              </MuiPickersUtilsProvider>
+            </Grid>
+
+            <Grid item xs className={classes.textField}>
+              <TextField id="telephone" margin="normal" label="Telephone" />
+            </Grid>
+          </div>
+        </form>
+        <Grid item xs className={classes.textField}>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            className={classes.textField}
+          >
+            Save
+          </Button>
+        </Grid>
+      </Grid>
+    </Container>
   )
 }
 

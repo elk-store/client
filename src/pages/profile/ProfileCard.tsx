@@ -17,6 +17,7 @@ const useStyles = makeStyles({
   },
   actions: {
     display: 'flex',
+    flexGrow: 1,
     alignItems: 'center',
   },
 })
@@ -34,13 +35,13 @@ const ProfileCard: React.FC = () => {
       <CardActionArea className={classes.content}>
         <Header />
       </CardActionArea>
+      <Tabs value={value} onChange={handleChange} variant="fullWidth">
+        <Tab label="Settings" />
+        <Tab label="Orders" />
+        <Tab label="Addresses" />
+        <Tab label="Payment" />
+      </Tabs>
       <CardActions className={classes.actions}>
-        <Tabs value={value} onChange={handleChange} orientation="vertical">
-          <Tab label="Settings" />
-          <Tab label="Orders" />
-          <Tab label="Addresses" />
-          <Tab label="Payment" />
-        </Tabs>
         <TabPanel value={value} index={0}>
           <UserForm />
         </TabPanel>
