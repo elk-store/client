@@ -3,9 +3,15 @@ import styled from 'styled-components'
 
 import { AsideBanner } from './AsideBanner'
 import { Banner } from './Banner'
+import { Container } from 'common/UI'
 
 const Wrapper = styled.div`
-  width: 100%;
+  padding: 3rem 0;
+`
+
+const Flex = styled.div`
+  width: calc(100% + 2rem);
+  margin: -1rem;
 
   display: flex;
   flex-wrap: wrap;
@@ -13,8 +19,9 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.div`
-  padding: 1rem;
+  padding: 0 1rem;
   margin: 0;
+  margin-bottom: 1.5625rem;
   box-sizing: border-box;
 
   flex-grow: 0;
@@ -22,14 +29,14 @@ const Main = styled.div`
   flex-basis: 100%;
 
   @media (min-width: 1280px) {
-    padding-right: 0.35rem;
+    margin-bottom: 0;
     max-width: ${(2 / 3) * 100}%;
     flex-basis: ${(2 / 3) * 100}%;
   }
 `
 
 const Aside = styled.div`
-  padding: 1rem;
+  padding: 0 1rem;
   margin: 0;
   box-sizing: border-box;
 
@@ -37,40 +44,48 @@ const Aside = styled.div`
   max-width: 100%;
   flex-basis: 100%;
 
-  @media (min-width: 1280px) {
-    padding-left: 0.65rem;
-    max-width: ${(1 / 3) * 100}%;
-    flex-basis: ${(1 / 3) * 100}%;
+  @media (min-width: 600px) {
+    display: flex;
   }
 
-  @media (max-width: 1279px) {
-    padding-top: 0rem;
+  @media (min-width: 960px) {
+    display: block;
+  }
+
+  @media (min-width: 1280px) {
+    margin-bottom: 0;
+    max-width: ${(1 / 3) * 100}%;
+    flex-basis: ${(1 / 3) * 100}%;
   }
 `
 
 const Slick: React.FC = () => {
   return (
     <Wrapper>
-      <Main>
-        <Banner
-          title="Big Sale"
-          description="Women's Summer Collection"
-          image="https://embryo-react.theironnetwork.org/static/media/slider-1.da083e8e.jpg"
-        />
-      </Main>
+      <Container>
+        <Flex>
+          <Main>
+            <Banner
+              title="Big Sale"
+              description="Women's Summer Collection"
+              image="https://embryo-react.theironnetwork.org/static/media/slider-1.da083e8e.jpg"
+            />
+          </Main>
 
-      <Aside>
-        <AsideBanner
-          title="50% OFF"
-          description="Men's Winter Collection"
-          image="https://embryo-react.theironnetwork.org/static/media/slider-2.bdc46acc.jpg"
-        />
-        <AsideBanner
-          title="Today's Special"
-          description="Sale on Jacket"
-          image="https://embryo-react.theironnetwork.org/static/media/slider-3.0fb93455.jpg"
-        />
-      </Aside>
+          <Aside>
+            <AsideBanner
+              title="50% OFF"
+              description="Men's Winter Collection"
+              image="https://embryo-react.theironnetwork.org/static/media/slider-2.bdc46acc.jpg"
+            />
+            <AsideBanner
+              title="Today's Special"
+              description="Sale on Jacket"
+              image="https://embryo-react.theironnetwork.org/static/media/slider-3.0fb93455.jpg"
+            />
+          </Aside>
+        </Flex>
+      </Container>
     </Wrapper>
   )
 }
