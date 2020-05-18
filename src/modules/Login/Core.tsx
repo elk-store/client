@@ -14,14 +14,11 @@ const Content = styled.div`
   position: relative;
   flex-direction: column;
   vertical-align: top;
-
   padding: 0 1.5rem !important;
   min-width: 45% !important;
-
   @media (max-width: 767px) {
     width: 65%;
   }
-
   @media (max-width: 599px) {
     width: 100%;
   }
