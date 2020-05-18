@@ -24,12 +24,12 @@ const ShopInformation: React.FC = () => {
         <Card
           title="free shipping"
           description="every day / every order"
-          conditions="all order over $100"
+          conditions="all order over R$ 100.00"
         />
         <Card
           title="friendly support"
           description="24/7 dedicated support"
-          conditions="only in USA"
+          conditions="only in Brazil"
         />
         <Card
           title="secure"
