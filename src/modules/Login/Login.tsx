@@ -5,6 +5,7 @@ import React from 'react'
 import SplitPane from 'react-split-pane'
 import styled from 'styled-components'
 
+import logoSrc from 'common/assets/logo.svg'
 import { Container as BaseContainer } from 'common/UI'
 
 const Banner = styled.div`
@@ -28,7 +29,7 @@ const Row = styled.div`
 `
 
 const Logo = styled.img`
-  width: 300px;
+  height: 300px;
 `
 
 const Login: React.FC = () => {
@@ -36,7 +37,7 @@ const Login: React.FC = () => {
     <SplitPane split="vertical" minSize="30%">
       <Container>
         <Row>
-          <Logo src="https://i.imgur.com/ztZsFXg.jpg" />
+          <Logo src={logoSrc} />
           <FormControl margin="dense">
             <TextField id="username" label="Username" />
             <TextField id="password" label="Password" />
