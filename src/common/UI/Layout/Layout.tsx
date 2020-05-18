@@ -17,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
         --color-light: ${colors.light};
 
         --color-black: ${colors.black};
-        --color-black-light: ${colors.black}80;
+        --color-black-light: ${colors['black-light']};
+        --color-black-lighter: ${colors['black-lighter']};
         --color-grey: ${colors.grey};
         --color-white: ${colors.white};
         --color-white-light: ${colors['white-light']};

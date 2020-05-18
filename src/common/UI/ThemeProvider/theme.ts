@@ -3,6 +3,8 @@ export type ColorVariant =
   | 'secondary'
   | 'light'
   | 'black'
+  | 'black-light'
+  | 'black-lighter'
   | 'grey'
   | 'white'
   | 'white-light'
@@ -29,6 +31,8 @@ const theme = {
     secondary: '#ca50f2',
     light: '#f9f7ff',
     black: '#000000',
+    'black-light': '#00000080',
+    'black-lighter': '#00000040',
     grey: '#262525',
     white: '#ffffff',
     'white-light': '#ffffff70',
