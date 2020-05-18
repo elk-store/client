@@ -40,11 +40,11 @@ export default class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800&display=swap"
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700,900&display=swap"
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap"
           />
         </Head>
         <body>
