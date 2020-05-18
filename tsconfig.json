@@ -4,7 +4,13 @@
     "baseUrl": "./src",
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["cypress/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "cypress/**/*.ts"
+  ],
   "extends": "./node_modules/@significa/tsconfig-config/index.json"
 }
