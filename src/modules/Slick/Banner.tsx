@@ -3,13 +3,17 @@ import styled from 'styled-components'
 
 const Card = styled.div`
   position: relative;
-  width: 100%;
-  display: inline-block;
-  padding: 0.5rem;
+
   border-radius: 0.3125rem;
   background-color: var(--color-white);
+
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+`
+
+const ImageWrapper = styled.img`
+  width: 100%;
+  border-radius: 0.3125rem;
 `
 
 const Content = styled.div`
@@ -18,10 +22,11 @@ const Content = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  pointer-events: none;
+
+  display: flex;
   align-items: center;
   justify-content: flex-end;
-  display: flex;
+  pointer-events: none;
 `
 
 const Holder = styled.div`
@@ -76,7 +81,7 @@ const Banner: React.FC<{
 }> = ({ image, title, description }) => {
   return (
     <Card>
-      <img src={image} alt="Hello" />
+      <ImageWrapper src={image} alt="Hello" />
 
       <Content>
         <Holder>
