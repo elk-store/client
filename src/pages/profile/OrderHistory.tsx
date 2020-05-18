@@ -9,7 +9,7 @@ const OrderHistory: React.FC = () => {
       <Grid container spacing={2}>
         {[0, 1, 2].map((value) => (
           <Grid item xs key={value}>
-            <Order key={value} />
+            <Order />
           </Grid>
         ))}
       </Grid>

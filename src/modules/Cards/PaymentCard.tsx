@@ -35,7 +35,7 @@ const PaymentCard: React.FC<CardProps> = ({ isDefault }) => {
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} gutterBottom>
-          Card ###.###.###
+          Card 5409 4631 8158 2244
         </Typography>
         {isDefault ? <Typography>Default</Typography> : ''}
       </CardContent>

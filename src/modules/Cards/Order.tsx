@@ -37,7 +37,7 @@ const Order: React.FC = () => {
           color="textSecondary"
           gutterBottom
         >
-          Order ###.###.###
+          Order ###
         </Typography>
         <Stepper alternativeLabel activeStep={activeStep}>
           {steps.map((label) => (
