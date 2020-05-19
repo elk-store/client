@@ -1,19 +1,17 @@
-import { Grid } from '@material-ui/core'
 import React from 'react'
 
-import ProfileCard from '../modules/Profile/ProfileCard'
+import { Container } from 'common/UI'
 import Core from 'modules/Core'
+import ProfileContent from 'modules/ProfileContent'
 
-const Index: React.FC = () => {
+const Profile: React.FC = () => {
   return (
     <Core>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <ProfileCard />
-        </Grid>
-      </Grid>
+      <Container>
+        <ProfileContent />
+      </Container>
     </Core>
   )
 }
 
-export default Index
+export default Profile

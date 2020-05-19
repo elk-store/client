@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 })
 
-const ProfileCard: React.FC = () => {
+const ProfileContent: React.FC = () => {
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
 
@@ -59,4 +59,4 @@ const ProfileCard: React.FC = () => {
   )
 }
 
-export default ProfileCard
+export { ProfileContent }

@@ -37,7 +37,7 @@ const Form: React.FC = () => {
 
   return (
     <Container>
-      <Grid justify="center" alignItems="center" spacing={2}>
+      <Grid container justify="center" alignItems="center" spacing={2}>
         <form>
           <div>
             <Grid item xs className={classes.textField}>
