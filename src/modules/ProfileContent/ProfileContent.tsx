@@ -1,13 +1,13 @@
 import { Tabs, Tab } from '@material-ui/core'
-import React from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import styled from 'styled-components'
 
 import Addresses from './Addresses'
 import { Header } from './Header'
-import OrderHistory from './OrderHistory'
+import Orders from './Orders'
 import Payment from './Payment'
+import Settings from './Settings'
 import { TabPanel } from './TabPanel'
-import UserForm from 'modules/Forms/User'
 
 const Card = styled.div`
   overflow: hidden;
@@ -20,12 +20,12 @@ const Card = styled.div`
 `
 
 const TABS_TITLE = ['Settings', 'Orders', 'Addresses', 'Payment']
-const TABS = [UserForm, OrderHistory, Addresses, Payment]
+const TABS = [Settings, Orders, Addresses, Payment]
 
 const ProfileContent: React.FC = () => {
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = useState(0)
 
-  const handleChange = (_event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (_event: ChangeEvent<{}>, newValue: number) => {
     setValue(newValue)
   }
 
