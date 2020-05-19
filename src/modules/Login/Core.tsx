@@ -9,6 +9,25 @@ const Logo = styled.img`
   margin-bottom: 1rem;
 `
 
+const Content = styled.div`
+  border: solid red;
+  display: inline-flex;
+  position: relative;
+  flex-direction: column;
+  vertical-align: top;
+
+  padding: 0 1.5rem !important;
+  min-width: 45% !important;
+
+  @media (max-width: 767px) {
+    width: 65%;
+  }
+
+  @media (max-width: 599px) {
+    width: 100%;
+  }
+`
+
 const Core: React.FC = ({ children }) => {
   return (
     <>
@@ -27,7 +46,8 @@ const Core: React.FC = ({ children }) => {
           }}
         >
           <Logo src={logoSrc} />
-          {children}
+
+          <Content>{children}</Content>
         </Grid>
         <Grid
           item
