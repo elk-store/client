@@ -17,11 +17,7 @@ const ForgetPassword: React.FC = () => {
         <Alert severity="success">A recovery email was sent!</Alert>
       </Collapse>
 
-      <TextField
-        id="email"
-        label="Recovery email"
-        style={{ marginBottom: '0.5rem' }}
-      />
+      <TextField label="Recovery email" style={{ marginBottom: '0.5rem' }} />
 
       <Button
         variant="contained"
