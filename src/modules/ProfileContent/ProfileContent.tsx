@@ -1,16 +1,26 @@
-import { Card, CardActionArea, CardActions, Tabs, Tab } from '@material-ui/core'
+import { CardActions, Tabs, Tab } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
+import styled from 'styled-components'
 
 import Addresses from './Addresses'
-import Header from './Header'
+import { Header } from './Header'
 import OrderHistory from './OrderHistory'
 import Payment from './Payment'
 import TabPanel from './Tab'
 import UserForm from 'modules/Forms/User'
 
+const Card = styled.div`
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background: var(--color-white);
+
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+`
+
 const useStyles = makeStyles({
-  root: {},
   content: {
     display: 'flex',
     flexDirection: 'row',
@@ -31,16 +41,16 @@ const ProfileContent: React.FC = () => {
   }
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea className={classes.content}>
-        <Header />
-      </CardActionArea>
+    <Card>
+      <Header />
+
       <Tabs value={value} onChange={handleChange} variant="fullWidth">
         <Tab label="Settings" />
         <Tab label="Orders" />
         <Tab label="Addresses" />
         <Tab label="Payment" />
       </Tabs>
+
       <CardActions className={classes.actions}>
         <TabPanel value={value} index={0}>
           <UserForm />
