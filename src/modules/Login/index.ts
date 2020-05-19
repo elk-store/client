@@ -1,3 +1,3 @@
-import { Login } from './Login'
+import { Core } from './Core'
 
-export default Login
+export { Core }

@@ -2,7 +2,7 @@ import { TextField, Button, Collapse } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
 import React from 'react'
 
-import { Core } from './Core'
+import { Core } from 'modules/Login'
 
 const ForgetPassword: React.FC = () => {
   const [open, setOpen] = React.useState(false)
@@ -31,4 +31,4 @@ const ForgetPassword: React.FC = () => {
   )
 }
 
-export { ForgetPassword }
+export default ForgetPassword

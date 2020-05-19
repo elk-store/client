@@ -1,7 +1,7 @@
 import { TextField, Button } from '@material-ui/core'
 import React from 'react'
 
-import { Core } from './Core'
+import { Core } from 'modules/Login'
 
 const Register: React.FC = () => {
   return (
@@ -31,4 +31,4 @@ const Register: React.FC = () => {
   )
 }
 
-export { Register }
+export default Register

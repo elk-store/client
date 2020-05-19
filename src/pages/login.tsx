@@ -3,7 +3,7 @@ import FaceIcon from '@material-ui/icons/Face'
 import React from 'react'
 import styled from 'styled-components'
 
-import { Core } from './Core'
+import { Core } from 'modules/Login'
 
 const ForgotPassword = styled.a`
   text-align: end;
@@ -46,4 +46,4 @@ const Login: React.FC = () => {
   )
 }
 
-export { Login }
+export default Login
