@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { Core } from './Core'
 
-const ForgotPassword = styled.div`
+const ForgotPassword = styled.a`
   text-align: end;
   color: var(--color-primary);
   cursor: pointer;
@@ -16,18 +16,17 @@ const ForgotPassword = styled.div`
 const Login: React.FC = () => {
   return (
     <Core>
-      <TextField
-        id="username"
-        label="Username"
-        style={{ marginBottom: '0.5rem' }}
-      />
+      <TextField id="email" label="E-mail" style={{ marginBottom: '0.5rem' }} />
       <TextField
         id="password"
         label="Password"
+        type="password"
         style={{ marginTop: '0.5rem' }}
       />
 
-      <ForgotPassword>Esqueci minha senha</ForgotPassword>
+      <ForgotPassword href="/forget-password">
+        Esqueci minha senha
+      </ForgotPassword>
 
       <Button
         variant="contained"
