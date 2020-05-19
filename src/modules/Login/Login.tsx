@@ -9,6 +9,7 @@ const ForgotPassword = styled.a`
   text-align: end;
   color: var(--color-primary);
   cursor: pointer;
+
   margin: 0.5rem 0;
 `
 
