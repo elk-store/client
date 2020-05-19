@@ -16,9 +16,8 @@ const ForgotPassword = styled.a`
 const Login: React.FC = () => {
   return (
     <Core>
-      <TextField id="email" label="Email" style={{ marginBottom: '0.5rem' }} />
+      <TextField label="Email" style={{ marginBottom: '0.5rem' }} />
       <TextField
-        id="password"
         label="Password"
         type="password"
         style={{ marginTop: '0.5rem' }}
