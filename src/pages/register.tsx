@@ -9,7 +9,7 @@ const Register: React.FC = () => {
       <TextField label="Personal name" style={{ marginBottom: '0.5rem' }} />
 
       <TextField
-        label="Email"
+        label="E-mail"
         type="email"
         style={{ marginBottom: '0.5rem' }}
       />
