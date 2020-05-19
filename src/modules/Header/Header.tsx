@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { Navigation } from './Navigation'
-import { Search } from './Search'
+// import { Search } from './Search'
 import { Toggle } from './Toggle'
 import { TRANSITION } from 'common/animations'
 import { APP_NAME } from 'common/constants'
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
             <Title size="heading">{APP_NAME}</Title>
           </Link>
 
-          <Search />
+          {/* <Search /> */}
 
           <Toggle onClick={handleMenu} open={showMenu} />
 
