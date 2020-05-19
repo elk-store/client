@@ -33,8 +33,8 @@ const Actions = styled.div`
 `
 
 const Icon = styled(IconButton)`
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 `
 
 const AddressCard: React.FC = () => {
