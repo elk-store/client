@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "isolatedModules": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["cypress/**/*.ts"],
