@@ -1,5 +1,6 @@
 import { IconButton } from '@material-ui/core'
-import { Person, ShoppingCart } from '@material-ui/icons'
+import { Person } from '@material-ui/icons'
+// import { Person, ShoppingCart } from '@material-ui/icons'
 import type { SvgIconComponent } from '@material-ui/icons'
 import Link from 'next/link'
 import React from 'react'
@@ -59,7 +60,8 @@ const MENU: Array<{
 }> = [
   // TODO: Verify if the user is logged, if not, shows login button
   { text: 'Profile', icon: Person, href: '/profile' },
-  { text: 'Shopping cart', icon: ShoppingCart, href: '/cart' },
+  // TODO: Adds cart page
+  // { text: 'Shopping cart', icon: ShoppingCart, href: '/cart' },
 ]
 
 const Navigation: React.FC = () => {
