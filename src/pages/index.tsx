@@ -9,8 +9,6 @@ const Index: React.FC = () => {
     <Core>
       <Slick />
       <ShopInformation />
-
-      <div style={{ height: '200vh' }} />
     </Core>
   )
 }
