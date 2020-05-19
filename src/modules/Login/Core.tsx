@@ -10,7 +10,6 @@ const Logo = styled.img`
 `
 
 const Content = styled.div`
-  border: solid red;
   display: inline-flex;
   position: relative;
   flex-direction: column;
