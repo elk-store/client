@@ -6,21 +6,15 @@ import { Core } from './Core'
 const Register: React.FC = () => {
   return (
     <Core>
-      <TextField
-        id="name"
-        label="Personal name"
-        style={{ marginBottom: '0.5rem' }}
-      />
+      <TextField label="Personal name" style={{ marginBottom: '0.5rem' }} />
 
       <TextField
-        id="email"
         label="Email"
         type="email"
         style={{ marginBottom: '0.5rem' }}
       />
 
       <TextField
-        id="password"
         label="Password"
         type="password"
         style={{ marginBottom: '0.5rem' }}
