@@ -16,7 +16,7 @@ const ForgotPassword = styled.a`
 const Login: React.FC = () => {
   return (
     <Core>
-      <TextField id="email" label="E-mail" style={{ marginBottom: '0.5rem' }} />
+      <TextField id="email" label="Email" style={{ marginBottom: '0.5rem' }} />
       <TextField
         id="password"
         label="Password"
@@ -25,7 +25,7 @@ const Login: React.FC = () => {
       />
 
       <ForgotPassword href="/forget-password">
-        Esqueci minha senha
+        I forgot my password
       </ForgotPassword>
 
       <Button
@@ -41,7 +41,7 @@ const Login: React.FC = () => {
         startIcon={<FaceIcon />}
         style={{ margin: '0.5rem 0' }}
       >
-        Entrar com Google
+        Login with Google
       </Button>
     </Core>
   )
