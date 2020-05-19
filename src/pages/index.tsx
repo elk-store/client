@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Core from 'modules/Core'
+import Products from 'modules/Products'
 import ShopInformation from 'modules/ShopInformation'
 import Slick from 'modules/Slick'
 
@@ -10,7 +11,7 @@ const Index: React.FC = () => {
       <Slick />
       <ShopInformation />
 
-      <div style={{ height: '200vh' }} />
+      <Products />
     </Core>
   )
 }
