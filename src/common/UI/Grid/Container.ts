@@ -10,8 +10,8 @@ const BREAKPOINTS: Array<{ minWidth: number; width: number }> = [
 ]
 
 const Container = styled.div`
-  margin: 0 auto;
-  padding: 0 1rem;
+  margin: auto;
+  padding: 1rem;
   max-width: 100%;
 
   ${BREAKPOINTS.map(({ minWidth, width }) => {
