@@ -14,9 +14,7 @@ const ForgetPassword: React.FC = () => {
   return (
     <Core>
       <Collapse in={open}>
-        <Alert variant="outlined" severity="success">
-          A recovery email was sent!
-        </Alert>
+        <Alert severity="success">A recovery email was sent!</Alert>
       </Collapse>
 
       <TextField
