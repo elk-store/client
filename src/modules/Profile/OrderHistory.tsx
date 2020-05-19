@@ -1,15 +1,15 @@
 import { Grid, Container } from '@material-ui/core'
 import React from 'react'
 
-import Address from '../../modules/Cards/Address'
+import Order from '../Cards/Order'
 
-const Addresses: React.FC = () => {
+const OrderHistory: React.FC = () => {
   return (
     <Container>
       <Grid container spacing={2}>
         {[0, 1, 2].map((value) => (
           <Grid item xs key={value}>
-            <Address isDefault={value === 0} />
+            <Order />
           </Grid>
         ))}
       </Grid>
@@ -17,4 +17,4 @@ const Addresses: React.FC = () => {
   )
 }
 
-export default Addresses
+export default OrderHistory

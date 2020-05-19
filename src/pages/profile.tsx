@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core'
 import React from 'react'
 
-import ProfileCard from './ProfileCard'
+import ProfileCard from '../modules/Profile/ProfileCard'
 import Core from 'modules/Core'
 
 const Index: React.FC = () => {

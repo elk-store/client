@@ -1,7 +1,7 @@
 import { Grid, Container } from '@material-ui/core'
 import React from 'react'
 
-import PaymentCard from '../../modules/Cards/PaymentCard'
+import PaymentCard from '../Cards/PaymentCard'
 
 const Payment: React.FC = () => {
   return (
