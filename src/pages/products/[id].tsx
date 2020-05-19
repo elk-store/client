@@ -34,9 +34,9 @@ const useStyles = makeStyles({
 
 const Post: React.FC = () => {
   const classes = useStyles()
-  const [color, setColor] = React.useState(0)
-  const [size, setSize] = React.useState(0)
-  const [quantity, setQuantity] = React.useState(0)
+  const [color, setColor] = React.useState(1)
+  const [size, setSize] = React.useState(2)
+  const [quantity, setQuantity] = React.useState(1)
 
   const handleColorChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setColor(event.target.value as number)
@@ -75,16 +75,16 @@ const Post: React.FC = () => {
           <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
               <Select value={color} onChange={handleColorChange} fullWidth>
-                <MenuItem value={10}>Black</MenuItem>
-                <MenuItem value={20}>Red</MenuItem>
-                <MenuItem value={30}>Blue</MenuItem>
+                <MenuItem value={1}>Black</MenuItem>
+                <MenuItem value={2}>Red</MenuItem>
+                <MenuItem value={3}>Blue</MenuItem>
               </Select>
             </Grid>
             <Grid item xs={12} sm={6}>
               <Select value={size} onChange={handleSizeChange} fullWidth>
-                <MenuItem value={10}>Small</MenuItem>
-                <MenuItem value={20}>Medium</MenuItem>
-                <MenuItem value={30}>Large</MenuItem>
+                <MenuItem value={1}>Small</MenuItem>
+                <MenuItem value={2}>Medium</MenuItem>
+                <MenuItem value={3}>Large</MenuItem>
               </Select>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -93,9 +93,9 @@ const Post: React.FC = () => {
                 onChange={handleQuantityChange}
                 fullWidth
               >
-                <MenuItem value={10}>1</MenuItem>
-                <MenuItem value={20}>2</MenuItem>
-                <MenuItem value={30}>3</MenuItem>
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
               </Select>
             </Grid>
           </Grid>
