@@ -81,6 +81,7 @@ const Container = styled(BaseContainer)`
   position: relative;
   align-items: center;
   justify-content: space-between;
+  padding: 0 1rem;
 `
 
 const Title = styled(Text)`
