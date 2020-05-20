@@ -1,14 +1,44 @@
-import { Typography, Grid, Select, MenuItem, Button } from '@material-ui/core'
+import { Grid, Select, MenuItem, Button } from '@material-ui/core'
 import React, { ChangeEvent } from 'react'
+import styled from 'styled-components'
 
-const Content: React.FC<{
+import { Text } from 'common/UI'
+
+type ContentProps = {
   color: number
   size: number
   quantity: number
   handleColorChange: (event: ChangeEvent<{ value: unknown }>) => void
   handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void
   handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void
-}> = ({
+}
+
+const Title = styled(Text)`
+  margin-bottom: 0.9375rem;
+  text-transform: capitalize;
+`
+
+const Price = styled(Text)`
+  margin-bottom: 1rem;
+`
+
+const List = styled.ul`
+  margin-bottom: 1.25rem;
+`
+
+const ListItem = styled.li`
+  margin-bottom: 0.625rem;
+`
+
+const ListItemDescription = styled(Text)`
+  margin-left: 0.3125rem;
+`
+
+const Description = styled(Text)`
+  padding-bottom: 1.25rem;
+`
+
+const Content: React.FC<ContentProps> = ({
   color,
   quantity,
   size,
@@ -18,13 +48,49 @@ const Content: React.FC<{
 }) => {
   return (
     <>
-      <Typography variant="h2">Product Name</Typography>
-      <Typography> Price: $25 </Typography>
-      <Typography>Tags: Black, Men, Accessories</Typography>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-      aperiam debitis ipsa veniam eos quas excepturi quae? Recusandae distinctio
-      nihil quia quis, eaque aspernatur perferendis repudiandae adipisci labore,
-      impedit beatae!
+      <Title as="h3" color="black" size="title" weight="medium">
+        Laptop Backpack
+      </Title>
+      <Price as="h4" color="primary" size="heading" weight="medium">
+        $ 25.75
+      </Price>
+      <List>
+        <ListItem>
+          <Text as="span" color="black" size="normal" weight="medium">
+            Availability:
+          </Text>
+          <ListItemDescription as="span" color="black" size="normal">
+            In Stocks
+          </ListItemDescription>
+        </ListItem>
+        <ListItem>
+          <Text as="span" color="black" size="normal" weight="medium">
+            Product Code:
+          </Text>
+          <ListItemDescription as="span" color="black" size="normal">
+            #EM1205
+          </ListItemDescription>
+        </ListItem>
+        <ListItem>
+          <Text as="span" color="black" size="normal" weight="medium">
+            Tags:
+          </Text>
+          <ListItemDescription as="span" color="black" size="normal">
+            Black
+          </ListItemDescription>
+          <ListItemDescription as="span" color="black" size="normal">
+            Summer
+          </ListItemDescription>
+        </ListItem>
+      </List>
+
+      <Description color="black-light">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
+        aperiam debitis ipsa veniam eos quas excepturi quae? Recusandae
+        distinctio nihil quia quis, eaque aspernatur perferendis repudiandae
+        adipisci labore, impedit beatae!
+      </Description>
+
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6}>
           <Select value={color} onChange={handleColorChange} fullWidth>
