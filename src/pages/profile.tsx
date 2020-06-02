@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { Container } from 'common/UI'
-import Core from 'modules/Core'
-import ProfileContent from 'modules/ProfileContent'
+import { Container } from 'common/UI';
+import Core from 'modules/Core';
+import ProfileContent from 'modules/ProfileContent';
 
 const Profile: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Profile: React.FC = () => {
         <ProfileContent />
       </Container>
     </Core>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

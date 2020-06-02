@@ -12,10 +12,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Setup Node
+      - name: Read .nvmrc
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+        id: nvm
+
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: '${{ steps.nvm.outputs.NODE_VERSION }}'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile

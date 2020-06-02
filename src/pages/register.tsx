@@ -1,7 +1,7 @@
-import { TextField, Button } from '@material-ui/core'
-import React from 'react'
+import { TextField, Button } from '@material-ui/core';
+import React from 'react';
 
-import { Core } from 'modules/Login'
+import { Core } from 'modules/Login';
 
 const Register: React.FC = () => {
   return (
@@ -28,7 +28,7 @@ const Register: React.FC = () => {
         Register
       </Button>
     </Core>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

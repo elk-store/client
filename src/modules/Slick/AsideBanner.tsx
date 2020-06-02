@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 const Card = styled.div`
   position: relative;
@@ -41,12 +41,12 @@ const Card = styled.div`
       margin-bottom: 1.5625rem;
     }
   }
-`
+`;
 
 const ImageWrapper = styled.img`
   width: 100%;
   border-radius: 0.3125rem;
-`
+`;
 
 const Content = styled.div`
   position: absolute;
@@ -59,19 +59,19 @@ const Content = styled.div`
   align-items: center;
   justify-content: flex-end;
   pointer-events: none;
-`
+`;
 
 const Holder = styled.div`
   width: 45%;
   text-align: center;
   padding-right: 1rem;
   pointer-events: visible;
-`
+`;
 
 const AsideBanner: React.FC<{
-  image: string
-  title: string
-  description: string
+  image: string;
+  title: string;
+  description: string;
 }> = ({ image, title, description }) => {
   return (
     <Card>
@@ -90,7 +90,7 @@ const AsideBanner: React.FC<{
         </Holder>
       </Content>
     </Card>
-  )
-}
+  );
+};
 
-export { AsideBanner }
+export { AsideBanner };

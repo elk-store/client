@@ -1,1 +1,1 @@
-export const APP_NAME = 'elk.'
+export const APP_NAME = 'elk.';

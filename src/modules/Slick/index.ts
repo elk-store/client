@@ -1,3 +1,3 @@
-import { Slick } from './Slick'
+import { Slick } from './Slick';
 
-export default Slick
+export default Slick;

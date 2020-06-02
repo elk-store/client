@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Card = styled.div`
   position: relative;
@@ -9,12 +9,12 @@ const Card = styled.div`
 
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-`
+`;
 
 const ImageWrapper = styled.img`
   width: 100%;
   border-radius: 0.3125rem;
-`
+`;
 
 const Content = styled.div`
   position: absolute;
@@ -27,14 +27,14 @@ const Content = styled.div`
   align-items: center;
   justify-content: flex-end;
   pointer-events: none;
-`
+`;
 
 const Holder = styled.div`
   width: 45%;
   text-align: center;
   padding-right: 1rem;
   pointer-events: visible;
-`
+`;
 
 const Title = styled.p`
   font-weight: 400;
@@ -51,7 +51,7 @@ const Title = styled.p`
     font-size: 1.5rem;
     margin-bottom: 0.3125rem;
   }
-`
+`;
 
 const Description = styled.p`
   font-weight: 900;
@@ -72,12 +72,12 @@ const Description = styled.p`
   @media (max-width: 599px) {
     font-size: 1.8rem;
   }
-`
+`;
 
 const Banner: React.FC<{
-  image: string
-  title: string
-  description: string
+  image: string;
+  title: string;
+  description: string;
 }> = ({ image, title, description }) => {
   return (
     <Card>
@@ -92,7 +92,7 @@ const Banner: React.FC<{
         </Holder>
       </Content>
     </Card>
-  )
-}
+  );
+};
 
-export { Banner }
+export { Banner };

@@ -1,15 +1,15 @@
-import { TextField, Button, Collapse } from '@material-ui/core'
-import Alert from '@material-ui/lab/Alert'
-import React from 'react'
+import { TextField, Button, Collapse } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import React from 'react';
 
-import { Core } from 'modules/Login'
+import { Core } from 'modules/Login';
 
 const ForgetPassword: React.FC = () => {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   return (
     <Core>
@@ -28,7 +28,7 @@ const ForgetPassword: React.FC = () => {
         Recover password!
       </Button>
     </Core>
-  )
-}
+  );
+};
 
-export default ForgetPassword
+export default ForgetPassword;

@@ -1,12 +1,12 @@
-import { IconButton } from '@material-ui/core'
-import { Person } from '@material-ui/icons'
+import { IconButton } from '@material-ui/core';
+import { Person } from '@material-ui/icons';
 // import { Person, ShoppingCart } from '@material-ui/icons'
-import type { SvgIconComponent } from '@material-ui/icons'
-import Link from 'next/link'
-import React from 'react'
-import styled from 'styled-components'
+import type { SvgIconComponent } from '@material-ui/icons';
+import Link from 'next/link';
+import React from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 const Menu = styled.nav`
   flex: none;
@@ -24,7 +24,7 @@ const Menu = styled.nav`
     padding-left: 2rem;
     margin-bottom: 0;
   }
-`
+`;
 
 const MenuItem = styled.span`
   opacity: 0.6;
@@ -43,7 +43,7 @@ const MenuItem = styled.span`
     width: 100%;
     margin: 0.2rem 0;
   }
-`
+`;
 
 const Description = styled(Text)`
   margin-left: 0.25rem;
@@ -51,18 +51,18 @@ const Description = styled(Text)`
   @media (min-width: 60rem) {
     display: none;
   }
-`
+`;
 
 const MENU: Array<{
-  text: string
-  href: string
-  icon: SvgIconComponent
+  text: string;
+  href: string;
+  icon: SvgIconComponent;
 }> = [
   // TODO: Verify if the user is logged, if not, shows login button
   { text: 'Profile', icon: Person, href: '/profile' },
   // TODO: Adds cart page
   // { text: 'Shopping cart', icon: ShoppingCart, href: '/cart' },
-]
+];
 
 const Navigation: React.FC = () => {
   return (
@@ -80,11 +80,11 @@ const Navigation: React.FC = () => {
                 </IconButton>
               </Link>
             </MenuItem>
-          )
+          );
         })}
       </Menu>
     </>
-  )
-}
+  );
+};
 
-export { Navigation }
+export { Navigation };

@@ -1,42 +1,42 @@
-import { Grid, Select, MenuItem, Button } from '@material-ui/core'
-import React, { ChangeEvent } from 'react'
-import styled from 'styled-components'
+import { Grid, Select, MenuItem, Button } from '@material-ui/core';
+import React, { ChangeEvent } from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 type ContentProps = {
-  color: number
-  size: number
-  quantity: number
-  handleColorChange: (event: ChangeEvent<{ value: unknown }>) => void
-  handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void
-  handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void
-}
+  color: number;
+  size: number;
+  quantity: number;
+  handleColorChange: (event: ChangeEvent<{ value: unknown }>) => void;
+  handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
+  handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void;
+};
 
 const Title = styled(Text)`
   margin-bottom: 0.9375rem;
   text-transform: capitalize;
-`
+`;
 
 const Price = styled(Text)`
   margin-bottom: 1rem;
-`
+`;
 
 const List = styled.ul`
   margin-bottom: 1.25rem;
-`
+`;
 
 const ListItem = styled.li`
   margin-bottom: 0.625rem;
-`
+`;
 
 const ListItemDescription = styled(Text)`
   margin-left: 0.3125rem;
-`
+`;
 
 const Description = styled(Text)`
   padding-bottom: 1.25rem;
-`
+`;
 
 const Content: React.FC<ContentProps> = ({
   color,
@@ -127,7 +127,7 @@ const Content: React.FC<ContentProps> = ({
         </Grid>
       </Grid>
     </>
-  )
-}
+  );
+};
 
-export { Content }
+export { Content };

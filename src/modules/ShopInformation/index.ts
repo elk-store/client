@@ -1,3 +1,3 @@
-import { ShopInformation } from './ShopInformation'
+import { ShopInformation } from './ShopInformation';
 
-export default ShopInformation
+export default ShopInformation;

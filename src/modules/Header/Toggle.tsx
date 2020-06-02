@@ -1,6 +1,6 @@
-import { motion, SVGMotionProps } from 'framer-motion'
-import React from 'react'
-import styled from 'styled-components'
+import { motion, SVGMotionProps } from 'framer-motion';
+import React from 'react';
+import styled from 'styled-components';
 
 const Button = styled.button`
   top: 0.4rem;
@@ -9,7 +9,7 @@ const Button = styled.button`
   @media (min-width: 60em) {
     display: none;
   }
-`
+`;
 
 const Path: React.FC<SVGMotionProps<SVGPathElement>> = (props) => (
   <motion.path
@@ -19,7 +19,7 @@ const Path: React.FC<SVGMotionProps<SVGPathElement>> = (props) => (
     strokeLinecap="round"
     {...props}
   />
-)
+);
 
 const Toggle: React.FC<{ onClick: () => void; open: boolean }> = ({
   onClick,
@@ -48,7 +48,7 @@ const Toggle: React.FC<{ onClick: () => void; open: boolean }> = ({
         />
       </svg>
     </Button>
-  )
-}
+  );
+};
 
-export { Toggle }
+export { Toggle };

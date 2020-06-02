@@ -1,13 +1,13 @@
 import {
   ThemeProvider as MuiThemeProvider,
   createMuiTheme,
-} from '@material-ui/core/styles'
-import App from 'next/app'
-import React from 'react'
+} from '@material-ui/core/styles';
+import App from 'next/app';
+import React from 'react';
 
-import 'wipe.css'
+import 'wipe.css';
 
-import { ThemeProvider, Layout, theme } from 'common/UI'
+import { ThemeProvider, Layout, theme } from 'common/UI';
 
 class MyApp extends App {
   private muiTheme = createMuiTheme({
@@ -16,10 +16,10 @@ class MyApp extends App {
       secondary: { main: theme.colors.secondary },
       background: { default: theme.colors.light },
     },
-  })
+  });
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
 
     return (
       <ThemeProvider>
@@ -29,8 +29,8 @@ class MyApp extends App {
           </Layout>
         </MuiThemeProvider>
       </ThemeProvider>
-    )
+    );
   }
 }
 
-export default MyApp
+export default MyApp;

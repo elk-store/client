@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   padding: 1.5rem;
-`
+`;
 
 const TabPanel: React.FC<{ index: number; value: number }> = ({
   children,
@@ -14,7 +14,7 @@ const TabPanel: React.FC<{ index: number; value: number }> = ({
     <div hidden={value !== index}>
       {value === index && <Wrapper>{children}</Wrapper>}
     </div>
-  )
-}
+  );
+};
 
-export { TabPanel }
+export { TabPanel };

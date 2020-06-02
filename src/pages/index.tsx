@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Core from 'modules/Core'
-import Products from 'modules/Products'
-import ShopInformation from 'modules/ShopInformation'
-import Slick from 'modules/Slick'
+import Core from 'modules/Core';
+import Products from 'modules/Products';
+import ShopInformation from 'modules/ShopInformation';
+import Slick from 'modules/Slick';
 
 const Index: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const Index: React.FC = () => {
 
       <Products />
     </Core>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

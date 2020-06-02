@@ -2,9 +2,7 @@
   elk. client 🛒
 </h1>
 
-## Prerequisites
-
-What things you need to install the software and how to install them
+## Dependencies
 
 - [Node](https://nodejs.org) v12.16.3 or higher
 - [Yarn](https://yarnpkg.com) v1.22.4 or higher
@@ -30,3 +28,7 @@ yarn test
 # code style
 yarn validate
 ```
+
+## License
+
+Elk. (client) is [MIT licensed](LICENSE).

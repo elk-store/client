@@ -1,5 +1,5 @@
-import React from 'react'
-import { createGlobalStyle, css } from 'styled-components'
+import React from 'react';
+import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   ${({ theme }) => css`
@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
       `}
     }
   `}
-`
+`;
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -44,7 +44,7 @@ const Layout: React.FC = ({ children }) => {
       <GlobalStyle />
       {children}
     </>
-  )
-}
+  );
+};
 
-export { Layout }
+export { Layout };

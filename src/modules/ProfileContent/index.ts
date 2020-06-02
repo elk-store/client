@@ -1,3 +1,3 @@
-import { ProfileContent } from './ProfileContent'
+import { ProfileContent } from './ProfileContent';
 
-export default ProfileContent
+export default ProfileContent;
