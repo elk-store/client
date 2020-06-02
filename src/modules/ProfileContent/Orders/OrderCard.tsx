@@ -1,8 +1,8 @@
-import { Stepper, Step, StepLabel, Grid, Button } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
+import { Stepper, Step, StepLabel, Grid, Button } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 const Card = styled.div`
   overflow: hidden;
@@ -13,16 +13,16 @@ const Card = styled.div`
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-`
+`;
 
 const STEPS = [
   'Order received',
   'Payment accept',
   'On carriage',
   'Order delivered',
-]
+];
 
-const BUTTONS = ['Exchange or Return', 'Track shipment', 'More information']
+const BUTTONS = ['Exchange or Return', 'Track shipment', 'More information'];
 
 const OrderCard: React.FC<{ id: number; activeStep: 1 | 2 | 3 | 4 }> = ({
   id,
@@ -52,7 +52,7 @@ const OrderCard: React.FC<{ id: number; activeStep: 1 | 2 | 3 | 4 }> = ({
         ))}
       </Grid>
     </Card>
-  )
-}
+  );
+};
 
-export { OrderCard }
+export { OrderCard };

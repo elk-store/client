@@ -1,8 +1,8 @@
-import { Avatar } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
+import { Avatar } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -11,11 +11,11 @@ const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const Content = styled.div`
   padding: 0 1rem;
-`
+`;
 
 const Header: React.FC = () => {
   return (
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
         </Text>
       </Content>
     </Wrapper>
-  )
-}
+  );
+};
 
-export { Header }
+export { Header };

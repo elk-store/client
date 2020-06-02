@@ -1,3 +1,3 @@
-import { Addresses } from './Addresses'
+import { Addresses } from './Addresses';
 
-export default Addresses
+export default Addresses;

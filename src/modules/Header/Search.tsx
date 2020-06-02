@@ -1,6 +1,6 @@
-import { InputBase } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
+import { InputBase } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.15);
   text-align: left;
-`
+`;
 
 const Input = styled(InputBase)`
   color: inherit !important;
@@ -25,7 +25,7 @@ const Input = styled(InputBase)`
     transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     width: 100%;
   }
-`
+`;
 
 const Search = () => {
   return (
@@ -35,7 +35,7 @@ const Search = () => {
         inputProps={{ 'aria-label': 'What are you looking for?' }}
       />
     </Wrapper>
-  )
-}
+  );
+};
 
-export { Search }
+export { Search };

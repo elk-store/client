@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 const Card = styled.div`
   overflow: hidden;
@@ -11,7 +11,7 @@ const Card = styled.div`
 
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-`
+`;
 
 const Header = styled.div`
   min-height: 16rem;
@@ -20,13 +20,13 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const Content = styled.div`
   position: relative;
   padding: 1.25rem;
   padding-top: 1.875rem;
-`
+`;
 
 const Line = styled.hr`
   border: none;
@@ -34,7 +34,7 @@ const Line = styled.hr`
   margin: 0;
   flex-shrink: 0;
   background: rgba(0, 0, 0, 0.12);
-`
+`;
 
 const Title = styled(Text)`
   text-overflow: ellipsis;
@@ -44,7 +44,7 @@ const Title = styled(Text)`
   word-wrap: break-word;
   white-space: nowrap;
   margin-bottom: 1rem;
-`
+`;
 
 const ProductCard: React.FC = () => {
   return (
@@ -70,7 +70,7 @@ const ProductCard: React.FC = () => {
         </Text>
       </Content>
     </Card>
-  )
-}
+  );
+};
 
-export { ProductCard }
+export { ProductCard };

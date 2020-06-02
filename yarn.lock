@@ -1575,13 +1575,6 @@
     prettier "^2.0.5"
     typescript "^3.8.3"
 
-"@significa/prettier-config@0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@significa/prettier-config/-/prettier-config-0.0.17.tgz#e3864bd59f8a983f2bba8b68697a3677fd614c8b"
-  integrity sha512-wWrzrs8rW20u5zgtoiXiSOr1/1y2trClU/WaTn7W5Q0vKYVEMwE/1ekmIsmxZamWL46viRs4G635q4T9MTCgsw==
-  dependencies:
-    prettier "^2.0.5"
-
 "@significa/tsconfig-config@0.0.17":
   version "0.0.17"
   resolved "https://registry.yarnpkg.com/@significa/tsconfig-config/-/tsconfig-config-0.0.17.tgz#45b38f64459b4b02b93fbad84885ab66847143fa"

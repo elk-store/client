@@ -1,17 +1,17 @@
-const withImages = require('next-images')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const withImages = require('next-images');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
-const { version } = require('./package.json')
+const { version } = require('./package.json');
 
 module.exports = withImages({
   webpack(config) {
     if (config.resolve.plugins) {
-      config.resolve.plugins.push(new TsconfigPathsPlugin())
+      config.resolve.plugins.push(new TsconfigPathsPlugin());
     } else {
-      config.resolve.plugins = [new TsconfigPathsPlugin()]
+      config.resolve.plugins = [new TsconfigPathsPlugin()];
     }
 
-    return config
+    return config;
   },
   generateBuildId: async () => version,
   experimental: {
@@ -21,4 +21,4 @@ module.exports = withImages({
   typescript: {
     ignoreDevErrors: true,
   },
-})
+});

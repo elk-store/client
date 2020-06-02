@@ -9,17 +9,17 @@ export type ColorVariant =
   | 'white'
   | 'white-light'
   | 'white-lighter'
-  | 'error'
+  | 'error';
 export type FontSizeVariant =
   | 'small'
   | 'normal'
   | 'medium'
   | 'heading'
   | 'title'
-  | 'huge'
+  | 'huge';
 
-const FONT_SIZE_BASE = 16
-const pxToRem = (px: number): string => `${px / FONT_SIZE_BASE}rem`
+const FONT_SIZE_BASE = 16;
+const pxToRem = (px: number): string => `${px / FONT_SIZE_BASE}rem`;
 
 const theme = {
   settings: {
@@ -47,13 +47,13 @@ const theme = {
     title: pxToRem(30),
     huge: pxToRem(48),
   },
-}
+};
 
-export type Theme = typeof theme
+export type Theme = typeof theme;
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface DefaultTheme extends Theme {}
 }
 
-export { theme, FONT_SIZE_BASE }
+export { theme, FONT_SIZE_BASE };

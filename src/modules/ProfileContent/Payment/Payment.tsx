@@ -1,9 +1,9 @@
-import { Grid } from '@material-ui/core'
-import React from 'react'
+import { Grid } from '@material-ui/core';
+import React from 'react';
 
-import { PaymentCard } from './PaymentCard'
+import { PaymentCard } from './PaymentCard';
 
-const PAYMENTS = [1, 2, 3, 4]
+const PAYMENTS = [1, 2, 3, 4];
 
 const Payment: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Payment: React.FC = () => {
         </Grid>
       ))}
     </Grid>
-  )
-}
+  );
+};
 
-export { Payment }
+export { Payment };

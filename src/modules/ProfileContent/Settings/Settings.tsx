@@ -1,19 +1,19 @@
-import DateFnsUtils from '@date-io/date-fns'
-import { Grid, TextField, Button } from '@material-ui/core'
+import DateFnsUtils from '@date-io/date-fns';
+import { Grid, TextField, Button } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
-} from '@material-ui/pickers'
-import React, { useState } from 'react'
+} from '@material-ui/pickers';
+import React, { useState } from 'react';
 
 const Settings: React.FC = () => {
-  const [birthdate, setBirthdate] = useState<Date>(new Date())
+  const [birthdate, setBirthdate] = useState<Date>(new Date());
 
   const handleBirthdate = (date: Date | null) => {
     if (date) {
-      setBirthdate(date)
+      setBirthdate(date);
     }
-  }
+  };
 
   return (
     <Grid container spacing={2}>
@@ -48,7 +48,7 @@ const Settings: React.FC = () => {
         </Button>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export { Settings }
+export { Settings };

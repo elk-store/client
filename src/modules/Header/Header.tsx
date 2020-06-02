@@ -1,21 +1,21 @@
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import { Navigation } from './Navigation'
+import { Navigation } from './Navigation';
 // import { Search } from './Search'
-import { Toggle } from './Toggle'
-import { TRANSITION } from 'common/animations'
-import { APP_NAME } from 'common/constants'
-import { HEADER_HEIGHT } from 'common/sizes'
-import { Container as BaseContainer, Text } from 'common/UI'
+import { Toggle } from './Toggle';
+import { TRANSITION } from 'common/animations';
+import { APP_NAME } from 'common/constants';
+import { HEADER_HEIGHT } from 'common/sizes';
+import { Container as BaseContainer, Text } from 'common/UI';
 
 const Wrapper = styled.div<{ open: boolean }>`
   height: ${HEADER_HEIGHT};
   position: relative;
   z-index: ${({ open }) => (open ? 10 : 9)};
-`
+`;
 
 const MenuWrapper = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ const MenuWrapper = styled.div`
       z-index: -1;
     }
   }
-`
+`;
 
 const Background = styled.header`
   background: var(--color-primary);
@@ -74,7 +74,7 @@ const Background = styled.header`
   top: 0;
   left: 0%;
   right: 0;
-`
+`;
 
 const Container = styled(BaseContainer)`
   display: flex;
@@ -82,19 +82,19 @@ const Container = styled(BaseContainer)`
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-`
+`;
 
 const Title = styled(Text)`
   cursor: pointer;
   display: block;
-`
+`;
 
 const Header: React.FC = () => {
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleMenu = async () => {
-    setShowMenu((prevState) => !prevState)
-  }
+    setShowMenu((prevState) => !prevState);
+  };
 
   return (
     <Wrapper open={showMenu}>
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
         </Container>
       </Background>
     </Wrapper>
-  )
-}
+  );
+};
 
-export { Header }
+export { Header };

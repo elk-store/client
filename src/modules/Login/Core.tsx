@@ -1,13 +1,13 @@
-import { Grid } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
+import { Grid } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
 
-import logoSrc from 'common/assets/logo.svg'
+import logoSrc from 'common/assets/logo.svg';
 
 const Logo = styled.img`
   height: 200px;
   margin-bottom: 1rem;
-`
+`;
 
 const Content = styled.div`
   display: inline-flex;
@@ -24,7 +24,7 @@ const Content = styled.div`
   @media (max-width: 599px) {
     width: 100%;
   }
-`
+`;
 
 const Core: React.FC = ({ children }) => {
   return (
@@ -55,7 +55,7 @@ const Core: React.FC = ({ children }) => {
         />
       </Grid>
     </>
-  )
-}
+  );
+};
 
-export { Core }
+export { Core };

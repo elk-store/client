@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import Header from 'modules/Header'
+import Header from 'modules/Header';
 
 const Core: React.FC = ({ children }) => {
   return (
@@ -9,7 +9,7 @@ const Core: React.FC = ({ children }) => {
 
       {children}
     </>
-  )
-}
+  );
+};
 
-export { Core }
+export { Core };

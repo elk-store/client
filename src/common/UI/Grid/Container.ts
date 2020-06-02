@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 const BREAKPOINTS: Array<{ minWidth: number; width: number }> = [
   { minWidth: 576, width: 540 },
@@ -7,7 +7,7 @@ const BREAKPOINTS: Array<{ minWidth: number; width: number }> = [
   { minWidth: 992, width: 960 },
   { minWidth: 1200, width: 1140 },
   { minWidth: 1520, width: 1450 },
-]
+];
 
 const Container = styled.div`
   margin: auto;
@@ -19,8 +19,8 @@ const Container = styled.div`
       @media (min-width: ${minWidth}px) {
         width: ${width}px;
       }
-    `
+    `;
   })}
-`
+`;
 
-export { Container }
+export { Container };

@@ -1,20 +1,20 @@
-import { Grid } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
+import { Grid } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
 
-import { Container as BaseContainer, Text } from 'common/UI'
-import { ProductCard } from 'common/UI/ProductCard'
+import { Container as BaseContainer, Text } from 'common/UI';
+import { ProductCard } from 'common/UI/ProductCard';
 
 const Container = styled(BaseContainer)`
   margin-top: 1.5625rem;
   margin-bottom: 1.5625rem;
-`
+`;
 
 const Title = styled(Text)`
   padding-bottom: 1.5rem;
-`
+`;
 
-const PRODUCTS = [1, 2, 3, 4, 5, 6, 7, 8]
+const PRODUCTS = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const Products: React.FC = () => {
   return (
@@ -31,7 +31,7 @@ const Products: React.FC = () => {
         ))}
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export { Products }
+export { Products };

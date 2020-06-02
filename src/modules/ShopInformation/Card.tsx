@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 const Wrapper = styled.div`
   &:nth-child(1),
@@ -25,34 +25,34 @@ const Wrapper = styled.div`
       border-right: none;
     }
   }
-`
+`;
 
 const Container = styled.div`
   text-align: center;
   align-items: center;
   justify-content: flex-start;
   padding: 1.25rem;
-`
+`;
 
 const Title = styled(Text)`
   text-transform: uppercase;
   line-height: 1.75rem;
-`
+`;
 
 const Description = styled(Text)`
   text-transform: capitalize;
   line-height: 1.5rem;
   margin-bottom: 0.3125rem;
-`
+`;
 
 const Conditions = styled(Text)`
   text-transform: capitalize;
-`
+`;
 
 const Card: React.FC<{
-  title: string
-  description: string
-  conditions: string
+  title: string;
+  description: string;
+  conditions: string;
 }> = ({ conditions, description, title }) => {
   return (
     <Wrapper>
@@ -68,7 +68,7 @@ const Card: React.FC<{
         </Conditions>
       </Container>
     </Wrapper>
-  )
-}
+  );
+};
 
-export { Card }
+export { Card };

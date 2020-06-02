@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { AsideBanner } from './AsideBanner'
-import { Banner } from './Banner'
-import { Container } from 'common/UI'
+import { AsideBanner } from './AsideBanner';
+import { Banner } from './Banner';
+import { Container } from 'common/UI';
 
 const Wrapper = styled.div`
   padding: 3rem 0;
-`
+`;
 
 const Flex = styled.div`
   width: calc(100% + 2rem);
@@ -16,7 +16,7 @@ const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-`
+`;
 
 const Main = styled.div`
   padding: 0 1rem;
@@ -33,7 +33,7 @@ const Main = styled.div`
     max-width: ${(2 / 3) * 100}%;
     flex-basis: ${(2 / 3) * 100}%;
   }
-`
+`;
 
 const Aside = styled.div`
   padding: 0 1rem;
@@ -57,7 +57,7 @@ const Aside = styled.div`
     max-width: ${(1 / 3) * 100}%;
     flex-basis: ${(1 / 3) * 100}%;
   }
-`
+`;
 
 const Slick: React.FC = () => {
   return (
@@ -87,7 +87,7 @@ const Slick: React.FC = () => {
         </Flex>
       </Container>
     </Wrapper>
-  )
-}
+  );
+};
 
-export { Slick }
+export { Slick };

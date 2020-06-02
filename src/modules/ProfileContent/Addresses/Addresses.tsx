@@ -1,9 +1,9 @@
-import { Grid } from '@material-ui/core'
-import React from 'react'
+import { Grid } from '@material-ui/core';
+import React from 'react';
 
-import { AddressCard } from './AddressCard'
+import { AddressCard } from './AddressCard';
 
-const ADDRESSES = [1, 2, 3, 4]
+const ADDRESSES = [1, 2, 3, 4];
 
 const Addresses: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Addresses: React.FC = () => {
         </Grid>
       ))}
     </Grid>
-  )
-}
+  );
+};
 
-export { Addresses }
+export { Addresses };

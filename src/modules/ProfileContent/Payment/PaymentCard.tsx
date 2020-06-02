@@ -1,10 +1,10 @@
-import { IconButton, Button } from '@material-ui/core'
-import DeleteIcon from '@material-ui/icons/Delete'
-import EditIcon from '@material-ui/icons/Edit'
-import React from 'react'
-import styled from 'styled-components'
+import { IconButton, Button } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import React from 'react';
+import styled from 'styled-components';
 
-import { Text } from 'common/UI'
+import { Text } from 'common/UI';
 
 const Card = styled.div`
   overflow: hidden;
@@ -15,7 +15,7 @@ const Card = styled.div`
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-`
+`;
 
 const Content = styled.div`
   padding: 0.375rem 0;
@@ -23,19 +23,19 @@ const Content = styled.div`
 
   /* border-top: 1px solid var(--color-black-lighter); */
   border-bottom: 1px solid var(--color-black-lighter);
-`
+`;
 
 const Actions = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const Icon = styled(IconButton)`
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-`
+`;
 
 const PaymentCard: React.FC = () => {
   return (
@@ -61,7 +61,7 @@ const PaymentCard: React.FC = () => {
         </div>
       </Actions>
     </Card>
-  )
-}
+  );
+};
 
-export { PaymentCard }
+export { PaymentCard };
