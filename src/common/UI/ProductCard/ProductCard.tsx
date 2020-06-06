@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -46,18 +47,18 @@ const Title = styled(Text)`
   margin-bottom: 1rem;
 `;
 
-const ProductCard: React.FC = () => {
+const ProductCard: React.FC = (props) => {
   return (
     <Card>
       <Header>
         {/* TODO: Mudar o `a` para `Link` */}
-        <a href="/">
+        <Link href="/product/[slug]" as={`/product/${props.id}`}>
           <img
             src="https://cdn-demo.algolia.com/bestbuy-0118/5477500_sb.jpg"
             alt="Amazon - Fire TV Stick with Alexa Voice Remote - Black"
             height="140px"
           />
-        </a>
+        </Link>
       </Header>
       <Line />
       <Content>

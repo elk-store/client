@@ -38,6 +38,21 @@ const Description = styled(Text)`
   padding-bottom: 1.25rem;
 `;
 
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('https://jsonplaceholder.typicode.com/users/1');
+  const posts = await res.json();
+
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
 const Content: React.FC<ContentProps> = ({
   color,
   quantity,
@@ -45,11 +60,12 @@ const Content: React.FC<ContentProps> = ({
   handleColorChange,
   handleQuantityChange,
   handleSizeChange,
+  name,
 }) => {
   return (
     <>
       <Title as="h3" color="black" size="title" weight="medium">
-        Laptop Backpack
+        {name}
       </Title>
       <Price as="h4" color="primary" size="heading" weight="medium">
         $ 25.75
