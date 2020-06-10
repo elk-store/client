@@ -15,9 +15,9 @@ const Product: React.FC = () => {
   const [color, setColor] = React.useState(1);
   const [size, setSize] = React.useState(2);
   const [quantity, setQuantity] = React.useState(1);
-  const [name, _setName] = React.useState('mochila');
+  const [name, _setName] = React.useState('bag');
   const [price, _setPrice] = React.useState(1);
-  const [code, _setCode] = React.useState(1);
+  const [code, _setCode] = React.useState('code');
 
   const handleColorChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setColor(event.target.value as number);
