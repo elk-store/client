@@ -8,6 +8,7 @@ type ContentProps = {
   color: number;
   size: number;
   quantity: number;
+  name: string;
   handleColorChange: (event: ChangeEvent<{ value: unknown }>) => void;
   handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
   handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void;
@@ -38,29 +39,14 @@ const Description = styled(Text)`
   padding-bottom: 1.25rem;
 `;
 
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-  const res = await fetch('https://jsonplaceholder.typicode.com/users/1');
-  const posts = await res.json();
-
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
 const Content: React.FC<ContentProps> = ({
   color,
   quantity,
   size,
+  name,
   handleColorChange,
   handleQuantityChange,
   handleSizeChange,
-  name,
 }) => {
   return (
     <>
