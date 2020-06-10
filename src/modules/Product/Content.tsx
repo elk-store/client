@@ -9,6 +9,8 @@ type ContentProps = {
   size: number;
   quantity: number;
   name: string;
+  price: number;
+  code: string;
   handleColorChange: (event: ChangeEvent<{ value: unknown }>) => void;
   handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
   handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void;
@@ -44,6 +46,8 @@ const Content: React.FC<ContentProps> = ({
   quantity,
   size,
   name,
+  price,
+  code,
   handleColorChange,
   handleQuantityChange,
   handleSizeChange,
@@ -54,15 +58,16 @@ const Content: React.FC<ContentProps> = ({
         {name}
       </Title>
       <Price as="h4" color="primary" size="heading" weight="medium">
-        $ 25.75
+        {price}
       </Price>
       <List>
         <ListItem>
           <Text as="span" color="black" size="normal" weight="medium">
             Availability:
           </Text>
+
           <ListItemDescription as="span" color="black" size="normal">
-            In Stocks
+            {quantity > 0 ? `Availadle ${name}` : 'Unavailadle'}
           </ListItemDescription>
         </ListItem>
         <ListItem>
@@ -70,7 +75,7 @@ const Content: React.FC<ContentProps> = ({
             Product Code:
           </Text>
           <ListItemDescription as="span" color="black" size="normal">
-            #EM1205
+            {code}
           </ListItemDescription>
         </ListItem>
         <ListItem>
@@ -81,7 +86,7 @@ const Content: React.FC<ContentProps> = ({
             Black
           </ListItemDescription>
           <ListItemDescription as="span" color="black" size="normal">
-            Summer
+            Summer {/* mudar */}
           </ListItemDescription>
         </ListItem>
       </List>
