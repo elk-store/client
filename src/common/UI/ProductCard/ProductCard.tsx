@@ -47,12 +47,15 @@ const Title = styled(Text)`
   margin-bottom: 1rem;
 `;
 
-const ProductCard: React.FC = (props) => {
+type ProductCardProps = {
+  id: number;
+};
+
+const ProductCard: React.FC<ProductCardProps> = ({ id }) => {
   return (
     <Card>
       <Header>
-        {/* TODO: Mudar o `a` para `Link` */}
-        <Link href="/product/[slug]" as={`/product/${props.id}`}>
+        <Link href="/product/[slug]" as={`/product/${id}`}>
           <img
             src="https://cdn-demo.algolia.com/bestbuy-0118/5477500_sb.jpg"
             alt="Amazon - Fire TV Stick with Alexa Voice Remote - Black"
