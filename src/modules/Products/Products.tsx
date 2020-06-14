@@ -26,7 +26,7 @@ const Products: React.FC = () => {
       <Grid container spacing={2}>
         {PRODUCTS.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product}>
-            <ProductCard />
+            <ProductCard id={product} />
           </Grid>
         ))}
       </Grid>

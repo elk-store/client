@@ -2,7 +2,6 @@ import {
   Grid,
   Paper,
   makeStyles,
-  Button,
   Select,
   MenuItem,
   Typography,
@@ -10,6 +9,7 @@ import {
 import React from 'react';
 
 import Core from 'modules/Core';
+import { Content } from 'modules/Product';
 
 const useStyles = makeStyles({
   content: {
@@ -37,6 +37,9 @@ const Post: React.FC = () => {
   const [color, setColor] = React.useState(1);
   const [size, setSize] = React.useState(2);
   const [quantity, setQuantity] = React.useState(1);
+  const [name, _setName] = React.useState('bag');
+  const [price, _setPrice] = React.useState(1);
+  const [code, _setCode] = React.useState('code');
 
   const handleColorChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setColor(event.target.value as number);
@@ -80,35 +83,18 @@ const Post: React.FC = () => {
                 <MenuItem value={3}>Blue</MenuItem>
               </Select>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <Select value={size} onChange={handleSizeChange} fullWidth>
-                <MenuItem value={1}>Small</MenuItem>
-                <MenuItem value={2}>Medium</MenuItem>
-                <MenuItem value={3}>Large</MenuItem>
-              </Select>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Select
-                value={quantity}
-                onChange={handleQuantityChange}
-                fullWidth
-              >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-              </Select>
-            </Grid>
-          </Grid>
-          <Grid container spacing={1}>
-            <Grid item>
-              <Button variant="contained" color="primary">
-                Add to cart
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button variant="contained" color="secondary">
-                Buy now
-              </Button>
+            <Grid item xs={12} md={6}>
+              <Content
+                color={color}
+                size={size}
+                quantity={quantity}
+                name={name}
+                price={price}
+                code={code}
+                handleColorChange={handleColorChange}
+                handleQuantityChange={handleQuantityChange}
+                handleSizeChange={handleSizeChange}
+              />
             </Grid>
           </Grid>
         </Grid>
