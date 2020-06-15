@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Grid, Select, MenuItem } from '@material-ui/core';
 import { useRouter } from 'next/dist/client/router';
 import React from 'react';
 
@@ -18,9 +18,16 @@ const Search: React.FC = () => {
         <Grid container spacing={2}>
           <Grid container xs={4}>
             <div>{q}</div>
-            <div>300 resultados</div>
-            <div>Aqui vão os parametros de ordenação</div>
-            <div>Aqui vão os parametros de filtro</div>
+            <div>300 results</div>
+            <div>
+              <Select>
+                <MenuItem value={10}>Price: Low to High</MenuItem>
+                <MenuItem value={20}>Price: High to Low</MenuItem>
+                <MenuItem value={30}>Name</MenuItem>
+                <MenuItem value={40}>Date</MenuItem>
+              </Select>
+            </div>
+            <div>Filter params</div>
           </Grid>
           <Grid container xs={8}>
             {PRODUCTS.map((product) => (

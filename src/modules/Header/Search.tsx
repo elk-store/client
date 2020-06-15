@@ -29,7 +29,9 @@ const Input = styled(InputBase)`
 `;
 
 const Search = () => {
-  const handleKeyDown = (event: React.SyntheticEvent) => {
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement> & { target: HTMLInputElement }
+  ) => {
     if (event.key === 'Enter') {
       Router.push(`/search?q=${event.target.value}`);
     }
