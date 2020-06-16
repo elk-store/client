@@ -9,23 +9,19 @@ import {
   Checkbox,
   ListItemText,
 } from '@material-ui/core';
+import Pagination from '@material-ui/lab/Pagination';
 import { useRouter } from 'next/dist/client/router';
 import React from 'react';
+import styled from 'styled-components';
 
-import { Container } from 'common/UI';
+import { Container, Text } from 'common/UI';
 import { ProductCard } from 'common/UI/ProductCard';
 import Core from 'modules/Core';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+const Title = styled(Text)`
+  margin-bottom: 0.9375rem;
+  text-transform: capitalize;
+`;
 
 const PRODUCTS = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -39,6 +35,8 @@ const Search: React.FC = () => {
   const [range, setRange] = React.useState<number[]>([0, 100]);
   const [tags, setTags] = React.useState<string[]>([]);
   const [sizes, setSizes] = React.useState<string[]>([]);
+  const [results, _setResults] = React.useState<number>(40);
+  const [pages, _setPages] = React.useState<number>(Math.ceil(results / 8));
 
   const handleRangeChange = (_event: unknown, newRange: number | number[]) => {
     setRange(newRange as number[]);
@@ -56,19 +54,23 @@ const Search: React.FC = () => {
     <Core>
       <Container>
         <Grid container spacing={2}>
-          <Grid xs={4}>
-            <div>{q}</div>
-            <div>300 results</div>
-            <div>
+          <Grid container item xs={4} direction="column" spacing={3}>
+            <Grid item>
+              <Title as="h3" color="black" size="heading" weight="medium">
+                {q}
+              </Title>
+            </Grid>
+            <Grid item>{results} results</Grid>
+            <Grid item>
               <InputLabel id="sort-by-label">Sort by: </InputLabel>
-              <Select>
+              <Select fullWidth>
                 <MenuItem value={10}>Price: Low to High</MenuItem>
                 <MenuItem value={20}>Price: High to Low</MenuItem>
                 <MenuItem value={30}>Name</MenuItem>
                 <MenuItem value={40}>Date</MenuItem>
               </Select>
-            </div>
-            <div>
+            </Grid>
+            <Grid item>
               <InputLabel id="tags-label">Tags</InputLabel>
               <Select
                 labelId="tags-label"
@@ -78,13 +80,13 @@ const Search: React.FC = () => {
                 onChange={handleTagChange}
                 input={<Input id="select-tags-chip" />}
                 renderValue={(selected) => (
-                  <div>
+                  <Grid>
                     {(selected as string[]).map((value) => (
                       <Chip key={value} label={value} />
                     ))}
-                  </div>
+                  </Grid>
                 )}
-                MenuProps={MenuProps}
+                fullWidth
               >
                 {tagSelect.map((tag) => (
                   <MenuItem key={tag} value={tag}>
@@ -92,6 +94,8 @@ const Search: React.FC = () => {
                   </MenuItem>
                 ))}
               </Select>
+            </Grid>
+            <Grid item>
               <InputLabel id="sizes-label">Sizes</InputLabel>
               <Select
                 labelId="sizes-label"
@@ -101,7 +105,7 @@ const Search: React.FC = () => {
                 onChange={handleSizeChange}
                 input={<Input />}
                 renderValue={(selected) => (selected as string[]).join(', ')}
-                MenuProps={MenuProps}
+                fullWidth
               >
                 {sizesSelect.map((size) => (
                   <MenuItem key={size} value={size}>
@@ -110,20 +114,34 @@ const Search: React.FC = () => {
                   </MenuItem>
                 ))}
               </Select>
+            </Grid>
+            <Grid item>
               <InputLabel id="price-range-label">Price range</InputLabel>
               <Slider
                 value={range}
                 onChange={handleRangeChange}
                 valueLabelDisplay="auto"
               />
-            </div>
+            </Grid>
           </Grid>
-          <Grid xs={8}>
-            {PRODUCTS.map((product) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={product}>
-                <ProductCard id={product} />
-              </Grid>
-            ))}
+          <Grid
+            container
+            item
+            xs={8}
+            spacing={2}
+            direction="column"
+            alignItems="center"
+          >
+            <Grid item container spacing={3}>
+              {PRODUCTS.map((product) => (
+                <Grid item xs={12} sm={6} md={4} lg={3} key={product}>
+                  <ProductCard id={product} />
+                </Grid>
+              ))}
+            </Grid>
+            <Grid item>
+              <Pagination count={pages} shape="rounded" />
+            </Grid>
           </Grid>
         </Grid>
       </Container>
