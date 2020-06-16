@@ -51,7 +51,7 @@ type ProductCardProps = {
   id: number;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ id }) => {
+const ProductCard = ({ id }: ProductCardProps) => {
   return (
     <Card>
       <Header>
