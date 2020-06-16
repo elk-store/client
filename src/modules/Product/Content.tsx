@@ -10,6 +10,7 @@ type ContentProps = {
   name: string;
   price: number;
   code: string;
+  tag: string[];
   description: string;
   handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
   handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void;
@@ -56,6 +57,7 @@ const Content: React.FC<ContentProps> = ({
   name,
   price,
   code,
+  tag,
   description,
   handleQuantityChange,
 }) => {
@@ -89,12 +91,16 @@ const Content: React.FC<ContentProps> = ({
           <Text as="span" color="black" size="normal" weight="medium">
             Tags:
           </Text>
-          <ListItemDescription as="span" color="black" size="normal">
-            Black
-          </ListItemDescription>
-          <ListItemDescription as="span" color="black" size="normal">
-            Summer
-          </ListItemDescription>
+          {tag.map((tag, index) => (
+            <ListItemDescription
+              key={index}
+              as="span"
+              color="black"
+              size="normal"
+            >
+              {tag}
+            </ListItemDescription>
+          ))}
         </ListItem>
       </List>
 

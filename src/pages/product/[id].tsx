@@ -17,6 +17,7 @@ const Product: React.FC = () => {
   const [name, _setName] = React.useState('bag');
   const [price, _setPrice] = React.useState(1);
   const [code, _setCode] = React.useState('code');
+  const [tag, _setTag] = React.useState(['bonito', 'estiloso', 'pequeno']);
   const [description, _setDescription] = React.useState('description');
 
   const handleSizeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -44,6 +45,7 @@ const Product: React.FC = () => {
                 name={name}
                 price={price}
                 code={code}
+                tag={tag}
                 description={description}
                 handleQuantityChange={handleQuantityChange}
                 handleSizeChange={handleSizeChange}
