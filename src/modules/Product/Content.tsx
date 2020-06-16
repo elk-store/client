@@ -1,17 +1,16 @@
-import { Grid, Select, MenuItem, Button } from '@material-ui/core';
+import { Grid, Select, MenuItem, Button, InputBase } from '@material-ui/core';
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 import { Text } from 'common/UI';
 
 type ContentProps = {
-  color: number;
-  size: number;
+  size: string[];
   quantity: number;
   name: string;
   price: number;
   code: string;
-  handleColorChange: (event: ChangeEvent<{ value: unknown }>) => void;
+  description: string;
   handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
   handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void;
 };
@@ -41,16 +40,24 @@ const Description = styled(Text)`
   padding-bottom: 1.25rem;
 `;
 
+const Input = styled(InputBase)`
+  color: inherit !important;
+
+  input {
+    padding: 8px;
+    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    width: 100%;
+  }
+`;
+
 const Content: React.FC<ContentProps> = ({
-  color,
   quantity,
   size,
   name,
   price,
   code,
-  handleColorChange,
+  description,
   handleQuantityChange,
-  handleSizeChange,
 }) => {
   return (
     <>
@@ -86,39 +93,31 @@ const Content: React.FC<ContentProps> = ({
             Black
           </ListItemDescription>
           <ListItemDescription as="span" color="black" size="normal">
-            Summer {/* mudar */}
+            Summer
           </ListItemDescription>
         </ListItem>
       </List>
 
-      <Description color="black-light">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-        aperiam debitis ipsa veniam eos quas excepturi quae? Recusandae
-        distinctio nihil quia quis, eaque aspernatur perferendis repudiandae
-        adipisci labore, impedit beatae!
-      </Description>
+      <Description color="black-light">{description}</Description>
 
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6}>
-          <Select value={color} onChange={handleColorChange} fullWidth>
-            <MenuItem value={1}>Black</MenuItem>
-            <MenuItem value={2}>Red</MenuItem>
-            <MenuItem value={3}>Blue</MenuItem>
+          <Select fullWidth>
+            {size.map((size, index) => (
+              <MenuItem key={index} value={index}>
+                {size}
+              </MenuItem>
+            ))}
           </Select>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Select value={size} onChange={handleSizeChange} fullWidth>
-            <MenuItem value={1}>Small</MenuItem>
-            <MenuItem value={2}>Medium</MenuItem>
-            <MenuItem value={3}>Large</MenuItem>
-          </Select>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Select value={quantity} onChange={handleQuantityChange} fullWidth>
-            <MenuItem value={1}>1</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-          </Select>
+          <Input
+            defaultValue={quantity}
+            onChange={handleQuantityChange}
+            type="number"
+            placeholder="quantity"
+            inputProps={{ 'aria-label': 'quantity' }}
+          />
         </Grid>
       </Grid>
       <Grid container spacing={1}>

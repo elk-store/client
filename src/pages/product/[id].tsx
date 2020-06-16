@@ -12,19 +12,15 @@ const Wrapper = styled.div`
 `;
 
 const Product: React.FC = () => {
-  const [color, setColor] = React.useState(1);
-  const [size, setSize] = React.useState(2);
+  const [size, setSize] = React.useState(['S', 'M', 'X']);
   const [quantity, setQuantity] = React.useState(1);
   const [name, _setName] = React.useState('bag');
   const [price, _setPrice] = React.useState(1);
   const [code, _setCode] = React.useState('code');
-
-  const handleColorChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setColor(event.target.value as number);
-  };
+  const [description, _setDescription] = React.useState('description');
 
   const handleSizeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setSize(event.target.value as number);
+    setSize(event.target.value as string[]);
   };
 
   const handleQuantityChange = (
@@ -43,13 +39,12 @@ const Product: React.FC = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               <Content
-                color={color}
                 size={size}
                 quantity={quantity}
                 name={name}
                 price={price}
                 code={code}
-                handleColorChange={handleColorChange}
+                description={description}
                 handleQuantityChange={handleQuantityChange}
                 handleSizeChange={handleSizeChange}
               />
