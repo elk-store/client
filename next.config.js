@@ -17,7 +17,9 @@ module.exports = withImages({
   experimental: {
     reactRefresh: true,
   },
-  env: {},
+  env: {
+    API_URL: process.env.API_URL,
+  },
   typescript: {
     ignoreDevErrors: true,
   },
