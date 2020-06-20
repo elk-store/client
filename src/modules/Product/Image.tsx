@@ -12,13 +12,15 @@ const Item = styled.img`
   vertical-align: middle;
 `;
 
-const Image: React.FC = () => {
+type ImageProps = {
+  name: string;
+  picture: string[];
+};
+
+const Image: React.FC<ImageProps> = ({ name, picture }) => {
   return (
     <GalleryItem>
-      <Item
-        src="https://embryo-react.theironnetwork.org/static/media/a-1-a.57b3779d.jpg"
-        alt="Laptop Backpack"
-      />
+      <Item src={picture[0]} alt={name} />
     </GalleryItem>
   );
 };

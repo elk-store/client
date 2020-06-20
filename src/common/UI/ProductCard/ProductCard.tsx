@@ -49,28 +49,32 @@ const Title = styled(Text)`
 
 type ProductCardProps = {
   id: number;
+  picture: string;
+  name: string;
+  price: number;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ id }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  id,
+  name,
+  price,
+  picture,
+}) => {
   return (
     <Card>
       <Header>
         <Link href="/product/[slug]" as={`/product/${id}`}>
-          <img
-            src="https://cdn-demo.algolia.com/bestbuy-0118/5477500_sb.jpg"
-            alt="Amazon - Fire TV Stick with Alexa Voice Remote - Black"
-            height="140px"
-          />
+          <img src={picture} alt={name} height="140px" />
         </Link>
       </Header>
       <Line />
       <Content>
         <Title as="h5" color="black" size="heading" weight="medium">
-          Amazon - Fire TV Stick with Alexa Voice Remote - Black
+          {name}
         </Title>
 
         <Text as="span" color="primary" weight="medium">
-          $ 34.99
+          $ {price}
         </Text>
       </Content>
     </Card>

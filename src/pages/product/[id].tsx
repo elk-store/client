@@ -1,24 +1,47 @@
 import { Grid } from '@material-ui/core';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 
+import { API_URL } from 'common/constants';
 import { Container } from 'common/UI';
 import Core from 'modules/Core';
 import { Image, Content } from 'modules/Product';
+import { ProductData } from 'modules/Product/product.model';
+
+axios.defaults.baseURL = API_URL;
 
 const Wrapper = styled.div`
   background: var(--color-white);
   padding: 3rem 0;
 `;
 
-const Product: React.FC = () => {
-  const [size, setSize] = React.useState(['S', 'M', 'X']);
-  const [quantity, setQuantity] = React.useState(1);
-  const [name, _setName] = React.useState('bag');
-  const [price, _setPrice] = React.useState(1);
-  const [code, _setCode] = React.useState('code');
-  const [tag, _setTag] = React.useState(['bonito', 'estiloso', 'pequeno']);
-  const [description, _setDescription] = React.useState('description');
+type ContentProps = {
+  sizes: string[];
+  quantity: number;
+  name: string;
+  price: number;
+  code: string;
+  tags: string[];
+  pictures: string[];
+  description: string;
+};
+
+const Product: React.FC<ContentProps> = ({
+  sizes,
+  quantity,
+  name,
+  price,
+  code,
+  tags,
+  pictures,
+  description,
+}) => {
+  const _router = useRouter();
+
+  const [_size, setSize] = React.useState(['a', 'b', 'c']);
+  const [_quantity, setQuantity] = React.useState(1);
 
   const handleSizeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSize(event.target.value as string[]);
@@ -36,16 +59,16 @@ const Product: React.FC = () => {
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              <Image />
+              <Image name={name} picture={pictures} />
             </Grid>
             <Grid item xs={12} md={6}>
               <Content
-                size={size}
+                sizes={sizes}
                 quantity={quantity}
                 name={name}
                 price={price}
                 code={code}
-                tag={tag}
+                tags={tags}
                 description={description}
                 handleQuantityChange={handleQuantityChange}
                 handleSizeChange={handleSizeChange}
@@ -59,3 +82,27 @@ const Product: React.FC = () => {
 };
 
 export default Product;
+
+type Params = {
+  params: {
+    id: string;
+  };
+};
+
+export async function getStaticProps({ params }: Params) {
+  const response = await axios.get<ProductData>(`/products/${params.id}`);
+
+  return {
+    props: { ...response.data },
+  };
+}
+
+export async function getStaticPaths() {
+  const response = await axios.get<ProductData[]>('/products');
+
+  const paths = response.data.map((product: ProductData) => ({
+    params: { id: product.id },
+  }));
+
+  return { paths, fallback: false };
+}
