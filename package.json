@@ -33,6 +33,7 @@
     "react-cookie": "^4.0.3",
     "react-dom": "16.13.1",
     "styled-components": "^5.1.0",
+    "swr": "^0.2.3",
     "wipe.css": "^1.3.0",
     "yup": "^0.29.1"
   },

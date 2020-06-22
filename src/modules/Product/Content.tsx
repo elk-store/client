@@ -5,13 +5,13 @@ import styled from 'styled-components';
 import { Text } from 'common/UI';
 
 type ContentProps = {
-  sizes: string[];
-  quantity: number;
-  name: string;
-  price: number;
-  code: string;
-  tags: string[];
-  description: string;
+  sizes: string[] | undefined;
+  quantity: number | undefined;
+  name: string | undefined;
+  price: number | undefined;
+  code: string | undefined;
+  tags: string[] | undefined;
+  description: string | undefined;
   handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
   handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void;
 };
@@ -76,7 +76,7 @@ const Content: React.FC<ContentProps> = ({
           </Text>
 
           <ListItemDescription as="span" color="black" size="normal">
-            {quantity > 0 ? 'Available' : 'Unavailadle'}
+            {quantity ? 'In stocks' : 'Out of stocks'}
           </ListItemDescription>
         </ListItem>
         <ListItem>
@@ -91,7 +91,7 @@ const Content: React.FC<ContentProps> = ({
           <Text as="span" color="black" size="normal" weight="medium">
             tags:
           </Text>
-          {tags.map((tag, index) => (
+          {tags?.map((tag, index) => (
             <ListItemDescription
               key={index}
               as="span"
@@ -109,7 +109,7 @@ const Content: React.FC<ContentProps> = ({
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6}>
           <Select fullWidth>
-            {sizes.map((size, index) => (
+            {sizes?.map((size, index) => (
               <MenuItem key={index} value={index}>
                 {size}
               </MenuItem>

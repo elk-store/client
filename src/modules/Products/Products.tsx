@@ -1,7 +1,8 @@
 import { Grid } from '@material-ui/core';
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import useSWR from 'swr';
 
 import { API_URL } from 'common/constants';
 import { Container as BaseContainer, Text } from 'common/UI';
@@ -25,16 +26,13 @@ type ProductCardProps = {
   price: number;
 };
 
-const Products: React.FC = () => {
-  const [products, setProducts] = React.useState<ProductCardProps[]>([]);
+async function fetchData(url: string): Promise<ProductCardProps[]> {
+  const response = await axios.get<ProductCardProps[]>(url);
+  return response.data;
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get<ProductCardProps[]>(`/products`);
-      setProducts(response.data);
-    };
-    fetchData();
-  }, []);
+const Products: React.FC = () => {
+  const { data } = useSWR<ProductCardProps[]>('/products', fetchData);
 
   return (
     <Container>
@@ -43,7 +41,7 @@ const Products: React.FC = () => {
       </Title>
 
       <Grid container spacing={2}>
-        {products.map((product) => (
+        {data?.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
             <ProductCard
               id={product.id}

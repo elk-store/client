@@ -13,14 +13,14 @@ const Item = styled.img`
 `;
 
 type ImageProps = {
-  name: string;
-  picture: string[];
+  name: string | undefined;
+  picture: string[] | undefined;
 };
 
 const Image: React.FC<ImageProps> = ({ name, picture }) => {
   return (
     <GalleryItem>
-      <Item src={picture[0]} alt={name} />
+      <Item src={picture?.toLocaleString()} alt={name} />
     </GalleryItem>
   );
 };
