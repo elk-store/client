@@ -7,6 +7,7 @@ import React from 'react';
 
 import 'wipe.css';
 
+import { AuthProvider } from 'common/contexts';
 import { ThemeProvider, Layout, theme } from 'common/UI';
 
 class MyApp extends App {
@@ -22,13 +23,15 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <ThemeProvider>
-        <MuiThemeProvider theme={this.muiTheme}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </MuiThemeProvider>
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <MuiThemeProvider theme={this.muiTheme}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </MuiThemeProvider>
+        </ThemeProvider>
+      </AuthProvider>
     );
   }
 }
