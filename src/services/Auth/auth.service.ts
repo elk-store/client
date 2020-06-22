@@ -18,12 +18,31 @@ export type SignUpPayload = {
   phone: string;
 };
 
+type SignUpResponse = {
+  id: string;
+  email: string;
+  name: string;
+  cpf: string;
+  birthdate: Date;
+  phone: string;
+  role: 'REGULAR' | 'ADMINISTRATOR';
+  status: 'ACTIVE' | 'INACTIVE';
+  createdAt: Date;
+  updatedAt: Date;
+};
+
 export class Auth {
-  public async signIn(payload: SignInPayload) {
-    return axios.post<{ token: string }>('/auth', { ...payload });
+  public async signIn(payload: SignInPayload): Promise<string> {
+    const { data } = await axios.post<{ token: string }>('/auth', {
+      ...payload,
+    });
+
+    return data.token;
   }
 
-  public async signUp(payload: SignUpPayload) {
-    return axios.post('/user', { ...payload });
+  public async signUp(payload: SignUpPayload): Promise<SignUpResponse> {
+    const { data } = await axios.post<SignUpResponse>('/user', { ...payload });
+
+    return data;
   }
 }
