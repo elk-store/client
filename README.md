@@ -16,6 +16,9 @@ yarn install
 ## Running the app
 
 ```bash
+# Copy .env.sample to .env
+cp .env.sample .env
+
 yarn dev
 ```
 

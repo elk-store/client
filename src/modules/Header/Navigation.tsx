@@ -1,11 +1,10 @@
 import { IconButton } from '@material-ui/core';
-import { Person } from '@material-ui/icons';
-// import { Person, ShoppingCart } from '@material-ui/icons'
-import type { SvgIconComponent } from '@material-ui/icons';
+import { Person, MeetingRoom } from '@material-ui/icons';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import { AuthContext } from 'common/contexts';
 import { Text } from 'common/UI';
 
 const Menu = styled.nav`
@@ -45,43 +44,48 @@ const MenuItem = styled.span`
   }
 `;
 
-const Description = styled(Text)`
+const Description = styled(Text)<{ hide?: boolean }>`
   margin-left: 0.25rem;
 
   @media (min-width: 60rem) {
-    display: none;
+    display: ${({ hide = false }) => (hide ? 'none' : 'inherit')};
   }
 `;
 
-const MENU: Array<{
-  text: string;
-  href: string;
-  icon: SvgIconComponent;
-}> = [
-  // TODO: Verify if the user is logged, if not, shows login button
-  { text: 'Profile', icon: Person, href: '/profile' },
-  // TODO: Adds cart page
-  // { text: 'Shopping cart', icon: ShoppingCart, href: '/cart' },
-];
-
 const Navigation: React.FC = () => {
+  const { isAuthenticated, setToken } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    setToken('');
+  };
+
   return (
     <>
       <Menu>
-        {MENU.map((item) => {
-          return (
-            <MenuItem key={item.href}>
-              <Link href={item.href}>
-                <IconButton aria-label={item.text} color="inherit">
-                  <item.icon />
-                  <Description color="white" weight="bold">
-                    {item.text}
-                  </Description>
-                </IconButton>
-              </Link>
-            </MenuItem>
-          );
-        })}
+        {isAuthenticated && (
+          <MenuItem onClick={handleLogOut}>
+            <IconButton aria-label="Log out" color="inherit">
+              <MeetingRoom />
+              <Description color="white" weight="bold" hide={true}>
+                Log out
+              </Description>
+            </IconButton>
+          </MenuItem>
+        )}
+
+        <MenuItem>
+          <Link href={isAuthenticated ? '/profile' : '/login'}>
+            <IconButton
+              aria-label={isAuthenticated ? '/profile' : '/login'}
+              color="inherit"
+            >
+              <Person />
+              <Description color="white" weight="bold">
+                {isAuthenticated ? 'Profile' : 'Login'}
+              </Description>
+            </IconButton>
+          </Link>
+        </MenuItem>
       </Menu>
     </>
   );

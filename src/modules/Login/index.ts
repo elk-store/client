@@ -1,3 +1,2 @@
-import { Core } from './Core';
-
-export { Core };
+export { Core } from './Core';
+export { LoginForm } from './LoginForm';

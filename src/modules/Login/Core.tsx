@@ -15,10 +15,10 @@ const Content = styled.div`
   flex-direction: column;
   vertical-align: top;
   padding: 0 1.5rem !important;
-  min-width: 45% !important;
+  min-width: 60% !important;
 
   @media (max-width: 767px) {
-    width: 65%;
+    width: 80%;
   }
 
   @media (max-width: 599px) {
@@ -34,7 +34,6 @@ const Core: React.FC = ({ children }) => {
           item
           xs={12}
           sm={7}
-          md={5}
           style={{
             textAlign: 'center',
             justifyContent: 'center',
@@ -47,12 +46,7 @@ const Core: React.FC = ({ children }) => {
 
           <Content>{children}</Content>
         </Grid>
-        <Grid
-          item
-          sm={5}
-          md={7}
-          style={{ background: 'var(--color-primary)' }}
-        />
+        <Grid item sm={5} style={{ background: 'var(--color-primary)' }} />
       </Grid>
     </>
   );
