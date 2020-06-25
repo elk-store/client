@@ -1,20 +1,17 @@
-import { Grid, Select, MenuItem, Button, InputBase } from '@material-ui/core';
+import {
+  Grid,
+  Select,
+  MenuItem,
+  Button,
+  FormControl,
+  InputLabel,
+  TextField,
+} from '@material-ui/core';
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 import { Text } from 'common/UI';
-
-type ContentProps = {
-  sizes: string[] | undefined;
-  quantity: number | undefined;
-  name: string | undefined;
-  price: number | undefined;
-  code: string | undefined;
-  tags: string[] | undefined;
-  description: string | undefined;
-  handleSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
-  handleQuantityChange: (event: ChangeEvent<{ value: unknown }>) => void;
-};
+import { IProduct, Size } from 'services/Product';
 
 const Title = styled(Text)`
   margin-bottom: 0.9375rem;
@@ -41,34 +38,32 @@ const Description = styled(Text)`
   padding-bottom: 1.25rem;
 `;
 
-const Input = styled(InputBase)`
-  color: inherit !important;
+type ContentProps = {
+  product?: IProduct;
+  selectedSize?: Size;
+  selectedQuantity?: number;
+  handleSelectedSizeChange: (event: ChangeEvent<{ value: unknown }>) => void;
+  handleSelectedQuantityChange: (
+    event: ChangeEvent<{ value: unknown }>
+  ) => void;
+};
 
-  input {
-    padding: 8px;
-    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    width: 100%;
-  }
-`;
-
-const Content: React.FC<ContentProps> = ({
-  quantity,
-  sizes,
-  name,
-  price,
-  code,
-  tags,
-  description,
-  handleQuantityChange,
-}) => {
+const Content = ({
+  product,
+  handleSelectedQuantityChange,
+  handleSelectedSizeChange,
+  selectedQuantity,
+  selectedSize,
+}: ContentProps) => {
   return (
     <>
       <Title as="h3" color="black" size="title" weight="medium">
-        {name}
+        {product?.name}
       </Title>
       <Price as="h4" color="primary" size="heading" weight="medium">
-        {price}
+        $ {product?.price}
       </Price>
+
       <List>
         <ListItem>
           <Text as="span" color="black" size="normal" weight="medium">
@@ -76,22 +71,16 @@ const Content: React.FC<ContentProps> = ({
           </Text>
 
           <ListItemDescription as="span" color="black" size="normal">
-            {quantity ? 'In stocks' : 'Out of stocks'}
+            {product?.quantity ? 'In stocks' : 'Out of stocks'}
           </ListItemDescription>
         </ListItem>
+
         <ListItem>
           <Text as="span" color="black" size="normal" weight="medium">
-            Product Code:
+            Tags:
           </Text>
-          <ListItemDescription as="span" color="black" size="normal">
-            {code}
-          </ListItemDescription>
-        </ListItem>
-        <ListItem>
-          <Text as="span" color="black" size="normal" weight="medium">
-            tags:
-          </Text>
-          {tags?.map((tag, index) => (
+
+          {product?.tags?.map((tag, index) => (
             <ListItemDescription
               key={index}
               as="span"
@@ -104,34 +93,43 @@ const Content: React.FC<ContentProps> = ({
         </ListItem>
       </List>
 
-      <Description color="black-light">{description}</Description>
+      <Description color="black-light">{product?.description}</Description>
 
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6}>
-          <Select fullWidth>
-            {sizes?.map((size, index) => (
-              <MenuItem key={index} value={index}>
-                {size}
-              </MenuItem>
-            ))}
-          </Select>
+          <FormControl fullWidth>
+            <InputLabel>Sizes</InputLabel>
+            <Select
+              label="Sizes"
+              value={selectedSize}
+              onChange={handleSelectedSizeChange}
+            >
+              {product?.sizes?.map((size, index) => (
+                <MenuItem key={index} value={index}>
+                  {size}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <Input
-            defaultValue={quantity}
-            onChange={handleQuantityChange}
+          <TextField
+            label="Quantity"
             type="number"
-            placeholder="quantity"
-            inputProps={{ 'aria-label': 'quantity' }}
+            value={selectedQuantity}
+            onChange={handleSelectedQuantityChange}
           />
         </Grid>
       </Grid>
-      <Grid container spacing={1}>
+
+      <Grid container spacing={1} style={{ marginTop: '0.75rem' }}>
         <Grid item>
           <Button variant="contained" color="primary">
             Add to cart
           </Button>
         </Grid>
+
         <Grid item>
           <Button variant="contained" color="secondary">
             Buy now
