@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/interface-name-prefix */
+/* eslint-disable @typescript-eslint/no-empty-interface */
+
 export type ColorVariant =
   | 'primary'
   | 'secondary'
@@ -52,7 +55,6 @@ const theme = {
 export type Theme = typeof theme;
 
 declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface DefaultTheme extends Theme {}
 }
 
