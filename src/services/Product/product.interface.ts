@@ -12,7 +12,7 @@ export interface IProduct {
 }
 
 export interface IFindAllResponse {
-  items: Product[];
+  items: IProduct[];
   links: {
     first: string;
     last: string;
