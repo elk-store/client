@@ -1,14 +1,10 @@
 import { Grid } from '@material-ui/core';
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { API_URL } from 'common/constants';
 import { Container as BaseContainer, Text } from 'common/UI';
 import { ProductCard } from 'common/UI/ProductCard';
 import { IProduct, ProductService } from 'services/Product';
-
-axios.defaults.baseURL = API_URL;
 
 const Container = styled(BaseContainer)`
   margin-top: 1.5625rem;
