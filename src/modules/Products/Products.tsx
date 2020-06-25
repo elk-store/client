@@ -19,14 +19,7 @@ const Title = styled(Text)`
   padding-bottom: 1.5rem;
 `;
 
-type ProductCardProps = {
-  id: number;
-  pictures: string[];
-  name: string;
-  price: number;
-};
-
-const Products: React.FC = () => {
+const Products = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
