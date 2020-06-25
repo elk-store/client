@@ -1,3 +1,11 @@
+export enum Size {
+  XS = 'XS',
+  S = 'S',
+  M = 'M',
+  L = 'L',
+  XL = 'XL',
+}
+
 export interface IProduct {
   id: string;
   name: string;
@@ -6,7 +14,7 @@ export interface IProduct {
   description: string;
   tags: string[];
   pictures: string[];
-  sizes: number[];
+  sizes: Size[];
   createdAt: Date;
   updatedAt: Date;
 }
