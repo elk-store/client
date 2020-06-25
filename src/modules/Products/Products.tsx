@@ -1,12 +1,12 @@
 import { Grid } from '@material-ui/core';
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import useSWR from 'swr';
 
 import { API_URL } from 'common/constants';
 import { Container as BaseContainer, Text } from 'common/UI';
 import { ProductCard } from 'common/UI/ProductCard';
+import { IProduct, ProductService } from 'services/Product';
 
 axios.defaults.baseURL = API_URL;
 
@@ -26,13 +26,12 @@ type ProductCardProps = {
   price: number;
 };
 
-async function fetchData(url: string): Promise<ProductCardProps[]> {
-  const response = await axios.get<ProductCardProps[]>(url);
-  return response.data;
-}
-
 const Products: React.FC = () => {
-  const { data } = useSWR<ProductCardProps[]>('/products', fetchData);
+  const [products, setProducts] = useState<IProduct[]>([]);
+
+  useEffect(() => {
+    ProductService.findAll().then(setProducts);
+  }, []);
 
   return (
     <Container>
@@ -41,14 +40,9 @@ const Products: React.FC = () => {
       </Title>
 
       <Grid container spacing={2}>
-        {data?.map((product) => (
+        {products?.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-            <ProductCard
-              id={product.id}
-              name={product.name}
-              picture={product.pictures[0]}
-              price={product.price}
-            />
+            <ProductCard product={product} />
           </Grid>
         ))}
       </Grid>
