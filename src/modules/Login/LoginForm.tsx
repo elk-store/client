@@ -10,16 +10,16 @@ import { object, string } from 'yup';
 import { Core } from './Core';
 import { Auth } from 'services/Auth';
 
-interface FormProps {
+interface IFormProps {
   onSucessSubmit(token: string): void;
 }
 
-interface FormValues {
+interface IFormValues {
   email: string;
   password: string;
 }
 
-const initialValues: FormValues = { email: '', password: '' };
+const initialValues: IFormValues = { email: '', password: '' };
 
 const ForgotPassword = styled.a`
   text-align: end;
@@ -29,7 +29,7 @@ const ForgotPassword = styled.a`
   margin: 0.5rem 0;
 `;
 
-const LoginInnerForm = (props: FormikProps<FormValues>) => {
+const LoginInnerForm = (props: FormikProps<IFormValues>) => {
   const { isSubmitting, submitForm, status = {} } = props;
   const { errorMessage = null } = status;
 
@@ -80,15 +80,15 @@ const LoginInnerForm = (props: FormikProps<FormValues>) => {
   );
 };
 
-export const LoginForm = withFormik<FormProps, FormValues>({
+export const LoginForm = withFormik<IFormProps, IFormValues>({
   mapPropsToValues: () => initialValues,
   validationSchema: object().shape({
     email: string().email('Invalid email').required('Required field'),
     password: string().required('Required field'),
   }),
   handleSubmit: async (
-    values: FormValues,
-    formikBag: FormikBag<FormProps, FormValues>
+    values: IFormValues,
+    formikBag: FormikBag<IFormProps, IFormValues>
   ) => {
     const {
       setSubmitting,

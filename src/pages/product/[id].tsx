@@ -1,33 +1,36 @@
 import { Grid } from '@material-ui/core';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { Container } from 'common/UI';
 import Core from 'modules/Core';
 import { Image, Content } from 'modules/Product';
+import { IProduct, ProductService, Size } from 'services/Product';
 
 const Wrapper = styled.div`
   background: var(--color-white);
-  padding: 3rem 0;
 `;
 
 const Product: React.FC = () => {
-  const [color, setColor] = React.useState(1);
-  const [size, setSize] = React.useState(2);
-  const [quantity, setQuantity] = React.useState(1);
+  const router = useRouter();
 
-  const handleColorChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setColor(event.target.value as number);
+  const [product, setProduct] = useState<IProduct>();
+  const [selectedSize, setSelectedSize] = useState<Size>();
+  const [selectedQuantity, setSelectedQuantity] = useState<number>();
+
+  useEffect(() => {
+    ProductService.findById(router.query.id as string).then(setProduct);
+  }, [router]);
+
+  const handleSelectedSizeChange = (event: ChangeEvent<{ value: unknown }>) => {
+    setSelectedSize(event.target.value as Size);
   };
 
-  const handleSizeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setSize(event.target.value as number);
-  };
-
-  const handleQuantityChange = (
-    event: React.ChangeEvent<{ value: unknown }>
+  const handleSelectedQuantityChange = (
+    event: ChangeEvent<{ value: unknown }>
   ) => {
-    setQuantity(event.target.value as number);
+    setSelectedQuantity(event.target.value as number);
   };
 
   return (
@@ -36,16 +39,15 @@ const Product: React.FC = () => {
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              <Image />
+              <Image name={product?.name} picture={product?.pictures?.[0]} />
             </Grid>
             <Grid item xs={12} md={6}>
               <Content
-                color={color}
-                size={size}
-                quantity={quantity}
-                handleColorChange={handleColorChange}
-                handleQuantityChange={handleQuantityChange}
-                handleSizeChange={handleSizeChange}
+                product={product}
+                handleSelectedQuantityChange={handleSelectedQuantityChange}
+                handleSelectedSizeChange={handleSelectedSizeChange}
+                selectedQuantity={selectedQuantity}
+                selectedSize={selectedSize}
               />
             </Grid>
           </Grid>
