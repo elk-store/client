@@ -1,106 +1,60 @@
-import {
-  Grid,
-  Paper,
-  makeStyles,
-  Select,
-  MenuItem,
-  Typography,
-} from '@material-ui/core';
-import React from 'react';
+import { Grid } from '@material-ui/core';
+import { useRouter } from 'next/router';
+import React, { useState, ChangeEvent, useEffect } from 'react';
+import styled from 'styled-components';
 
+import { Container } from 'common/UI';
 import Core from 'modules/Core';
-import { Content } from 'modules/Product';
+import { Image, Content } from 'modules/Product';
+import { IProduct, ProductService, Size } from 'services/Product';
 
-const useStyles = makeStyles({
-  content: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
-  },
-  img: {
-    maxHeight: 500,
-  },
-  info: {
-    height: 500,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-  },
-  buttonWrapper: {
-    display: 'flex',
-    padding: '2rem',
-  },
-});
+const Wrapper = styled.div`
+  background: var(--color-white);
+`;
 
-const Post: React.FC = () => {
-  const classes = useStyles();
-  const [color, setColor] = React.useState(1);
-  const [size, setSize] = React.useState(2);
-  const [quantity, setQuantity] = React.useState(1);
-  const [name, _setName] = React.useState('bag');
-  const [price, _setPrice] = React.useState(1);
-  const [code, _setCode] = React.useState('code');
+const Product: React.FC = () => {
+  const router = useRouter();
 
-  const handleColorChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setColor(event.target.value as number);
+  const [product, setProduct] = useState<IProduct>();
+  const [selectedSize, setSelectedSize] = useState<Size>();
+  const [selectedQuantity, setSelectedQuantity] = useState<number>();
+
+  useEffect(() => {
+    ProductService.findById(router.query.id as string).then(setProduct);
+  }, [router]);
+
+  const handleSelectedSizeChange = (event: ChangeEvent<{ value: unknown }>) => {
+    setSelectedSize(event.target.value as Size);
   };
 
-  const handleSizeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setSize(event.target.value as number);
-  };
-
-  const handleQuantityChange = (
-    event: React.ChangeEvent<{ value: unknown }>
+  const handleSelectedQuantityChange = (
+    event: ChangeEvent<{ value: unknown }>
   ) => {
-    setQuantity(event.target.value as number);
+    setSelectedQuantity(event.target.value as number);
   };
 
   return (
     <Core>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Paper className={classes.content}>
-            <img
-              className={classes.img}
-              src="https://embryo-react.theironnetwork.org/static/media/a-1-a.57b3779d.jpg"
-              alt="Bag"
-            />
-          </Paper>
-        </Grid>
-        <Grid item xs={6} className={classes.info}>
-          <Typography variant="h2">Product Name</Typography>
-          <Typography> Price: $25 </Typography>
-          <Typography>Tags: Black, Men, Accessories</Typography>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-          aperiam debitis ipsa veniam eos quas excepturi quae? Recusandae
-          distinctio nihil quia quis, eaque aspernatur perferendis repudiandae
-          adipisci labore, impedit beatae!
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={6}>
-              <Select value={color} onChange={handleColorChange} fullWidth>
-                <MenuItem value={1}>Black</MenuItem>
-                <MenuItem value={2}>Red</MenuItem>
-                <MenuItem value={3}>Blue</MenuItem>
-              </Select>
+      <Wrapper>
+        <Container>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <Image name={product?.name} picture={product?.pictures?.[0]} />
             </Grid>
             <Grid item xs={12} md={6}>
               <Content
-                color={color}
-                size={size}
-                quantity={quantity}
-                name={name}
-                price={price}
-                code={code}
-                handleColorChange={handleColorChange}
-                handleQuantityChange={handleQuantityChange}
-                handleSizeChange={handleSizeChange}
+                product={product}
+                handleSelectedQuantityChange={handleSelectedQuantityChange}
+                handleSelectedSizeChange={handleSelectedSizeChange}
+                selectedQuantity={selectedQuantity}
+                selectedSize={selectedSize}
               />
             </Grid>
           </Grid>
-        </Grid>
-      </Grid>
+        </Container>
+      </Wrapper>
     </Core>
   );
 };
 
-export default Post;
+export default Product;
