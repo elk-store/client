@@ -16,3 +16,11 @@ export const findById = async (id: string) => {
 
   return data;
 };
+
+export const search = async (query: unknown) => {
+  const { data } = await axios.get<IFindAllResponse>('/products', {
+    params: query,
+  });
+
+  return data;
+};
