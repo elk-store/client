@@ -57,12 +57,12 @@ const Search: React.FC = () => {
   }
 
   function setFilters(results: IFindAllResponse) {
-    let tags: string[] = [];
-    let sizes: string[] = [];
+    const tags: string[] = [];
+    const sizes: string[] = [];
     const range: number[] = [];
     results.items.map((item) => {
-      tags = [...tags, ...item.tags];
-      sizes = [...sizes, ...item.sizes];
+      tags.push(...item.tags);
+      sizes.push(...item.sizes);
       range.push(item.price);
     });
     setTags(Array.from(new Set(tags).values()));
@@ -74,7 +74,7 @@ const Search: React.FC = () => {
     setData(results);
   }
 
-  const handleMinPriceChange = async (
+  const handleMinPriceChange = (
     event: React.ChangeEvent<{ value: unknown }>
   ) => {
     setSearchQuery({
@@ -83,10 +83,9 @@ const Search: React.FC = () => {
       name: q,
     });
     setMinPrice(event.target.value as number);
-    ProductService.search(searchQuery).then(setData);
   };
 
-  const handleMaxPriceChange = async (
+  const handleMaxPriceChange = (
     event: React.ChangeEvent<{ value: unknown }>
   ) => {
     setSearchQuery({
@@ -95,40 +94,30 @@ const Search: React.FC = () => {
       name: q,
     });
     setMaxPrice(event.target.value as number);
-    ProductService.search(searchQuery).then(setData);
   };
 
-  const handleTagChange = async (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
+  const handleTagChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setTagSelect(event.target.value as string[]);
+    const tags: string[] = event.target.value as string[];
     setSearchQuery({
       ...searchQuery,
-      tags: tagSelect.join(),
+      tags: tags.join(),
       name: q,
     });
-
-    ProductService.search(searchQuery).then(setData);
   };
 
-  const handleSizeChange = async (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
+  const handleSizeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSizeSelect(event.target.value as string[]);
+    const sizes: string[] = event.target.value as string[];
     setSearchQuery({
       ...searchQuery,
-      sizes: sizeSelect.join(),
+      sizes: sizes.join(),
       name: q,
     });
-
-    ProductService.search(searchQuery).then(setData);
   };
 
-  const handleSortChange = async (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
+  const handleSortChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSearchQuery({ ...searchQuery, order: event.target.value, name: q });
-    ProductService.search(searchQuery).then(setData);
   };
 
   const handlePageChange = (
@@ -136,14 +125,16 @@ const Search: React.FC = () => {
     value: number
   ) => {
     setPage(value);
-
     setSearchQuery({ ...searchQuery, page: value, name: q });
-    ProductService.search(searchQuery).then(setData);
   };
 
   useEffect(() => {
     ProductService.search({ name: q }).then(setFilters);
   }, [q]);
+
+  useEffect(() => {
+    ProductService.search(searchQuery).then(setData);
+  }, [searchQuery]);
 
   return (
     <Core>
