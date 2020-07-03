@@ -90,7 +90,7 @@ const Search: React.FC = () => {
   ) => {
     setSearchQuery({
       ...searchQuery,
-      'min-price': event.target.value,
+      'max-price': event.target.value,
       name: q,
     });
     setMaxPrice(event.target.value as number);
