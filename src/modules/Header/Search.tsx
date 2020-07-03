@@ -1,4 +1,5 @@
 import { InputBase } from '@material-ui/core';
+import Router from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -28,11 +29,20 @@ const Input = styled(InputBase)`
 `;
 
 const Search = () => {
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement> & { target: HTMLInputElement }
+  ) => {
+    if (event.key === 'Enter') {
+      Router.push(`/search?q=${event.target.value}`);
+    }
+  };
+
   return (
     <Wrapper>
       <Input
         placeholder="What are you looking for?"
         inputProps={{ 'aria-label': 'What are you looking for?' }}
+        onKeyPress={handleKeyDown}
       />
     </Wrapper>
   );
