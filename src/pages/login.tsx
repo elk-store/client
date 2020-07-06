@@ -18,7 +18,7 @@ const Login = () => {
     setToken(token);
   };
 
-  return <LoginForm onSucessSubmit={handleSuccessAuth} />;
+  return <LoginForm onSuccessSubmit={handleSuccessAuth} />;
 };
 
 export default Login;
