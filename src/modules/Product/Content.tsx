@@ -7,9 +7,11 @@ import {
   InputLabel,
   TextField,
 } from '@material-ui/core';
-import React, { ChangeEvent } from 'react';
+import Router from 'next/router';
+import React, { ChangeEvent, useContext } from 'react';
 import styled from 'styled-components';
 
+import { CartContext } from 'common/contexts/CartContext';
 import { Text } from 'common/UI';
 import { IProduct, Size } from 'services/Product';
 
@@ -55,6 +57,7 @@ const Content = ({
   selectedQuantity,
   selectedSize,
 }: ContentProps) => {
+  const ctx = useContext(CartContext);
   return (
     <>
       <Title as="h3" color="black" size="title" weight="medium">
@@ -125,13 +128,24 @@ const Content = ({
 
       <Grid container spacing={1} style={{ marginTop: '0.75rem' }}>
         <Grid item>
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => ctx.addToCart(product)}
+          >
             Add to cart
           </Button>
         </Grid>
 
         <Grid item>
-          <Button variant="contained" color="secondary">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => {
+              ctx.addToCart(product);
+              Router.push('/cart');
+            }}
+          >
             Buy now
           </Button>
         </Grid>
