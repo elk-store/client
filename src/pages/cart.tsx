@@ -2,45 +2,33 @@ import {
   Table,
   TableHead,
   TableRow,
+  Button,
   TableCell,
   TableBody,
 } from '@material-ui/core';
-import React from 'react';
+import { Delete } from '@material-ui/icons';
+import React, { useContext } from 'react';
 
+import { CartContext } from 'common/contexts/CartContext';
 import { Container } from 'common/UI';
 import Core from 'modules/Core';
+import { IProduct } from 'services/Product';
 
 function formatPrice(price: number) {
   return `$${(price * 0.01).toFixed(2)}`;
 }
 
-//function totalPrice(items: IProduct[]) {
-//  return items.reduce((acc, item) => acc + item.quantity * item.price, 0.0);
-//}
-
-const items = [
-  {
-    name: 'Celular Xiaomi Note 8 64G',
-    price: 220000,
-    quantity: 1,
-  },
-  {
-    name: 'Smartphone, Apple, iPhone 7',
-    price: 250000,
-    quantity: 1,
-  },
-  {
-    name: 'Celular Redmi Note 7 4GB',
-    price: 180000,
-    quantity: 1,
-  },
-];
+function totalPrice(items: IProduct[]) {
+  return items.reduce((acc, item) => acc + item.quantity * item.price, 0.0);
+}
 
 const Cart: React.FC = () => {
+  const ctx = useContext(CartContext);
+
   return (
     <Core>
       <Container>
-        <Table aria-label="simple table">
+        <Table aria-label="products">
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
@@ -49,17 +37,36 @@ const Cart: React.FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {items.map((item) => (
+            {ctx.items.map((item: IProduct, index: number) => (
               <TableRow key={item.name}>
                 <TableCell component="th" scope="row">
                   {item.name}
                 </TableCell>
                 <TableCell align="right">{formatPrice(item.price)}</TableCell>
                 <TableCell align="right">{item.quantity}</TableCell>
+                <TableCell align="right">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<Delete />}
+                    onClick={() => ctx.deleteFromCart(index)}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
+            <TableRow>
+              <TableCell colSpan={2}>Total</TableCell>
+              <TableCell align="right">
+                {formatPrice(totalPrice(ctx.items))}
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
+        <Button variant="contained" color="secondary">
+          Buy
+        </Button>
       </Container>
     </Core>
   );

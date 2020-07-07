@@ -1,5 +1,5 @@
 import { IconButton } from '@material-ui/core';
-import { Person, MeetingRoom } from '@material-ui/icons';
+import { Person, MeetingRoom, ShoppingCart } from '@material-ui/icons';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import styled from 'styled-components';
@@ -82,6 +82,16 @@ const Navigation: React.FC = () => {
               <Person />
               <Description color="white" weight="bold">
                 {isAuthenticated ? 'Profile' : 'Login'}
+              </Description>
+            </IconButton>
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/cart">
+            <IconButton aria-label="Cart" color="inherit">
+              <ShoppingCart />
+              <Description color="white" weight="bold">
+                Cart
               </Description>
             </IconButton>
           </Link>
