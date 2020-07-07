@@ -1,34 +1,24 @@
-import { TextField, Button } from '@material-ui/core';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useContext, useEffect } from 'react';
 
-import { Core } from 'modules/Login';
+import { AuthContext } from 'common/contexts';
+import { SignUpForm } from 'modules/Login';
 
-const Register: React.FC = () => {
-  return (
-    <Core>
-      <TextField label="Personal name" style={{ marginBottom: '0.5rem' }} />
+const Register = () => {
+  const router = useRouter();
+  const { setToken, isAuthenticated } = useContext(AuthContext);
 
-      <TextField
-        label="E-mail"
-        type="email"
-        style={{ marginBottom: '0.5rem' }}
-      />
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/');
+    }
+  }, [isAuthenticated, router]);
 
-      <TextField
-        label="Password"
-        type="password"
-        style={{ marginBottom: '0.5rem' }}
-      />
+  const handleSuccessAuth = (token: string) => {
+    setToken(token);
+  };
 
-      <Button
-        variant="contained"
-        color="primary"
-        style={{ margin: '0.5rem 0' }}
-      >
-        Register
-      </Button>
-    </Core>
-  );
+  return <SignUpForm onSuccessSubmit={handleSuccessAuth} />;
 };
 
 export default Register;

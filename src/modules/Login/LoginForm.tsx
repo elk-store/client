@@ -11,7 +11,7 @@ import { Core } from './Core';
 import { Auth } from 'services/Auth';
 
 interface IFormProps {
-  onSucessSubmit(token: string): void;
+  onSuccessSubmit(token: string): void;
 }
 
 interface IFormValues {
@@ -93,7 +93,7 @@ export const LoginForm = withFormik<IFormProps, IFormValues>({
     const {
       setSubmitting,
       setStatus,
-      props: { onSucessSubmit },
+      props: { onSuccessSubmit: onSuccessSubmit },
     } = formikBag;
 
     try {
@@ -102,7 +102,7 @@ export const LoginForm = withFormik<IFormProps, IFormValues>({
       const auth = new Auth();
       const token = await auth.signIn(values);
 
-      onSucessSubmit(token);
+      onSuccessSubmit(token);
     } catch (e) {
       console.error(e);
 
