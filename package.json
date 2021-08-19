@@ -28,7 +28,7 @@
     "formik-material-ui": "^2.0.0-beta.1",
     "formik-material-ui-pickers": "^0.0.10",
     "framer-motion": "^1.10.3",
-    "next": "9.3.6",
+    "next": "11.1.0",
     "next-images": "1.4.0",
     "react": "16.13.1",
     "react-cookie": "^4.0.3",
